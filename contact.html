@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | MAR-WEL LAB</title>
+  <link rel="icon" href="images/marwel_logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-brand"><img src="images/marwel_logo.png" alt="Logo" /><span>MAR-WEL LAB</span></div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+    <li><a href="research.html">Research</a></li><li><a href="projects.html">Projects</a></li>
+    <li><a href="publications.html">Publications</a></li><li><a href="team.html">Team</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-header">
+  <h1>Contact Us</h1>
+  <p>Get in touch with the MAR-WEL LAB team</p>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Lab Address</h3>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-text">
+            <strong>MAR-WEL LAB</strong>
+            <p>Department of Ocean Engineering<br />Indian Institute of Technology Madras<br />Chennai — 600 036, Tamil Nadu, India</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div class="contact-text">
+            <strong>Email</strong>
+            <p><a href="mailto:marwellab@iitm.ac.in">marwellab@iitm.ac.in</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-text">
+            <strong>Phone</strong>
+            <p>+91 44 2257 XXXX</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🌐</div>
+          <div class="contact-text">
+            <strong>Department Website</strong>
+            <p><a href="https://doe.iitm.ac.in" target="_blank">doe.iitm.ac.in</a></p>
+          </div>
+        </div>
+
+        <div style="margin-top:2rem;background:var(--aqua);border-radius:var(--radius);padding:1.2rem;">
+          <h4 style="color:var(--navy);margin-bottom:0.5rem;">🗺️ How to Reach Us</h4>
+          <p style="font-size:0.88rem;color:var(--mid-gray);">IIT Madras campus is located in Adyar, Chennai. The nearest metro station is IIT Madras on the Chennai Metro Green Line. Gate 1 on Sardar Patel Road is the main entry.</p>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3 style="font-family:var(--font-head);color:var(--navy);margin-bottom:1.2rem;">Send a Message</h3>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject">
+              <option value="">Select a topic</option>
+              <option>Research Collaboration</option>
+              <option>PhD / M.Tech Admissions</option>
+              <option>Project Enquiry</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Write your message here..." required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Map embed placeholder -->
+    <div style="margin-top:3rem;">
+      <h2 class="section-title">Find Us</h2>
+      <div style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow);margin-top:1rem;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.1!2d80.2341!3d12.9916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525d2e6b1cfb8d%3A0xe3e13bdb03fdeff8!2sIIT%20Madras!5e0!3m2!1sen!2sin!4v1"
+          width="100%" height="350" style="border:0;display:block;"
+          allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><img src="images/marwel_logo.png" alt="Logo" /><p>Marine Aquaculture, Risers &amp; Wave Energy Laboratory<br />Department of Ocean Engineering, IIT Madras</p></div>
+    <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="about.html">About</a></li><li><a href="research.html">Research</a></li><li><a href="publications.html">Publications</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="team.html">Team</a></li><li><a href="https://doe.iitm.ac.in" target="_blank">DOE — IIT Madras</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">© 2024 MAR-WEL LAB, IIT Madras. All rights reserved.</div>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>
