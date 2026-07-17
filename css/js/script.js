@@ -1,0 +1,5 @@
+(function(){const p=location.pathname.split('/').pop()||'index.html';document.querySelectorAll('.nav-links a').forEach(a=>{if(a.getAttribute('href')===p)a.classList.add('active');});})();
+const h=document.querySelector('.hamburger'),n=document.querySelector('.nav-links');
+if(h)h.addEventListener('click',()=>n.classList.toggle('open'));
+document.querySelectorAll('.card,.team-card,.pub-item,.project-card,.research-area').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity 0.5s ease,transform 0.5s ease';new IntersectionObserver(e=>{if(e[0].isIntersecting){el.style.opacity='1';el.style.transform='translateY(0)';}},{threshold:0.1}).observe(el);});
+const f=document.getElementById('contactForm');if(f)f.addEventListener('submit',function(e){e.preventDefault();const b=f.querySelector('.btn');b.textContent='Sending…';b.disabled=true;setTimeout(()=>{b.textContent='✓ Sent!';b.style.background='#27ae60';f.reset();setTimeout(()=>{b.textContent='Send Message';b.style.background='';b.disabled=false;},3000);},1200);});
