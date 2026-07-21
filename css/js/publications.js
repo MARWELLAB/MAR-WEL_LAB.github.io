@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let publications = [];
 
-    fetch("data/publications.json")
-        .then(response => response.json())
+    fetch("data/publications.tex")
+        .then(response => response.tex())
         .then(data => {
 
             publications = data;
