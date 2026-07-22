@@ -1,236 +1,717 @@
-%% Sometimes when a section can't be nicely modelled with the \entry[]... mechanism; hack our own
-
-\newpage\makerubrichead{Research Publications}
-\textbf{Journal Articles (Published/Accepted)\footnote{In the order of most recent. All the journal articles are indexed in Science Citation Index/Science Citation Index Expanded.}}
-
-\begin{enumerate}[label=\protect\circled{\arabic*}]
-    \justifying
-    
- \item \href{https://doi.org/10.1016/j.oceaneng.2026.126032}{%   
-Appandairaj, R., \textbf{Vijay, K. G.}, Li, A. J., \& Liu, Y. (2026). Physical and numerical modelling of a multifunctional double-curtain wall heaving floater for wave energy and coastal protection. \textit{Ocean Engineering}, 361, 126032.}
-
- \item \href{https://doi.org/10.1016/j.oceaneng.2026.125785}{%  
-AlYousif, A., Venkateswarlu, V., \& \textbf{Vijay, K. G.} (2026). Hydrodynamic performance of a porous double-wing funnel breakwater: An experimental and numerical investigation. \textit{Ocean Engineering}, 358, 125785.}
-
-\item \href{https://doi.org/10.1016/j.oceaneng.2026.124787}{%
-Jins, M. M., \textbf{Vijay, K. G.}, \& Behera, H. (2026). Numerical and experimental investigation of offshore breakwater with detachable top structures in wave-current environments. \textit{Ocean Engineering}, 354, Part 1, 124787.}
-
-\item \href{https://doi.org/10.1016/j.oceaneng.2026.124582}{%
-Jins, M. M., Kumaran, V., \textbf{Vijay, K. G.}, \& De, S. (2026). Experimental and numerical investigations on the hydrodynamics of multi-chambered porous breakwaters with a backwall. \textit{Ocean Engineering}, 353, Part 1, 124582.}
-
-\item \href{https://doi.org/10.1016/j.oceaneng.2026.124413}{%
- Lincy Jancy, \textbf{Vijay, K. G.}, Poguluri Sunny Kumar, G. Muraleedharan, \& K. Murali (2026). Regional frequency analysis of extreme ocean waves along the Indian coastline in a changing climate. \textit{Ocean Engineering}, 352, 124413.}
-
-\item \href{https://doi.org/10.1063/5.0313865}{%
-Salman, S.,\textbf{Vijay, K. G.}, \& Behera, H. (2026). Hydrodynamic Performance of Nested Rectangular Aquaculture Cages under Wave Action. \textit{Physics of Fluids},38, 027111.}
-
-\item \href{https://doi.org/10.1016/j.oceaneng.2026.124389}{%
-Salman, S., \& \textbf{Vijay, K. G.} (2026). Hydrodynamic Shielding by Distributed Standalone Perforated Cage Systems for Fish Farming. \textit{Ocean Engineering}, 351, 124389.}
-
-\item \href{https://doi.org/10.1016/j.oceaneng.2025.123653}{% 
-Rushikesh, K.,\textbf{Vijay, K. G.}, \& Sriram, V. (2026). Experimental investigations of floating archimedes spiral wind turbine on a semi-submersible with solid ballast stabilization. \textit{Ocean Engineering}, 347, 123653.}
-
-\item \href{https://doi.org/10.1061/JPSEA2.PSENG-1841}{% 
-Ganesh, E. S., Sugathan, A., \& \textbf{Vijay, K. G.} (2026). Investigation on the mechanical behavior of a deep-sea mining riser with multibooster stations. \textit{Journal of Pipeline Systems Engineering and Practice}, 17(1), 04025079.}
-
-
-\item \href{https://doi.org/10.1115/1.4069057}{%
-AlYousif, A., Venkateswarlu, V., \& \textbf{Vijay, K. G.} (2026). Gap resonance effects on the performance of oscillating water column under the influence of wave currents. \textit{Journal of Offshore Mechanics and Arctic Engineering}, 148(1), 012004.}
-
-\item \href{https://doi.org/10.1016/j.enganabound.2025.106524}{%
-Appandairaj, R., \textbf{Vijay, K. G.}, Sheng, W., \& Chen, J. T. (2025). Hydrodynamic performance of a submerged hydrofoil wave energy converter (SH-WEC) with latching control mechanism. \textit{Engineering Analysis with Boundary Elements}, 181, 106524.}
-
-\item \href{https://doi.org/10.1080/17445302.2025.2453276}{% 
-Venkateswarlu, V., Behera, H., \textbf{Vijay, K. G.}, \& Sahoo, T. (2025). Wave scattering by a pair of floating pontoons connected with a porous cage. \textit{Ships and Offshore Structures}, 1-22. }
-
-\item \href{https://doi.org/10.1016/j.enganabound.2025.106353}{%
-Salman, S., \textbf{Vijay, K. G.}, Nishad, C. S., \& Chen, J. T. (2025). Numerical and experimental investigation on a dual pontoon supported compartmentalized porous cages. \textit{Engineering Analysis with Boundary Elements}, 179, 106353.}
-
-\item \href{https://doi.org/10.1016/j.enganabound.2025.106370}{%
-Panduranga, K., Venkateswarlu, V., Koley, S., \& \textbf{Vijay, K. G.} (2025). Analysis of wave trapping by a submerged viscoelastic plate near a partially reflecting vertical wall with uneven seabed. \textit{Engineering Analysis with Boundary Elements}, 179.}
-
-\item \href{https://doi.org/10.1063/5.0270425}{%
-Pramod, A. L. N., Choudhury, A., \& \textbf{Vijay, K. G.}, Ooi, E. T., \& Natarajan, S. (2025). Sloshing reduction in a swaying tank with porous baffles using scaled boundary finite element method. \textit{Physics of Fluids}, 37(7).}
-
-\item \href{https://doi.org/10.1177/14750902251329077}{% 
-Panduranga, K., Venkateswarlu, V., \textbf{Vijay, K. G.}, \& Sahoo, T. (2025). Scattering of surface waves by a submerged wavy porous plate floating over seabed undulations under oblique waves. \textit{Journal of Engineering for the Maritime Environment}.}
-
-\item \href{https://doi.org/10.1063/5.0284532}{%
-Marshal Jins, M., Appandairaj, R., \textbf{Vijay, K. G.} \& Sriram, V. (2025). Experimental and numerical evaluation of chambered porous barriers in the presence of seawall. \textit{Physics of Fluids}, 37(9).}
-
-\item \href{https://doi.org/10.1063/5.0278863}{% 
-Salman, S., \textbf{Vijay, K. G.}, Behera, H., \& Chen, J. T. (2025). Gravity wave scattering by barge integrated porous cages. \textit{Physics of Fluids}, 37(8).}
-
-\item \href{https://doi.org/10.1016/j.enganabound.2024.106111}{% 
-Jins, M. M., \textbf{Vijay, K. G.}, Venkateswarlu, V., \& Behera, H. (2025). Oblique wave interaction with a floating dock in the presence of inverted trapezoidal pile-rock breakwaters. \textit{Engineering Analysis with Boundary Elements}, 172, 106111.}
-
-\item \href{https://doi.org/10.1016/j.apor.2025.104650}{%
-Sugathan, A., \& \textbf{Vijay, K. G.} (2025). Numerical investigations on the VIV response of a deep-water drilling riser with buoyancy modules. \textit{Applied Ocean Research}, 161.}
-
-\item \href{https://doi.org/10.1063/5.0234244}{%
-Chanda, A., Appandairaj, R., \textbf{Vijay, K. G.}, Sahoo, T., \& Meylan, M. H. (2025). Bragg scattering of surface gravity waves by a graded array of surface-piercing porous barriers of arbitrary configurations: A numerical approach. \textit{Physics of Fluids}, 37(1), 012119.}
-
-\item \href{https://doi.org/10.1115/1.4064616}{%
-Narendran, K., \& \textbf{Vijay, K. G.} (2025). Lipwall effects on a shore-front oscillating water column based on DBEM and CFD. \textit{Journal of Offshore Mechanics and Arctic Engineering}, 147(1).}
-
-\item \href{https://doi.org/10.1115/1.4069178}{% 
-AlYousif, A., Venkateswarlu, V., \& \textbf{Vijay, K. G.} (2025). Bragg resonance by a pair of sinusoidal seabed patches with floating funnel breakwater. \textit{Journal of Offshore Mechanics and Arctic Engineering}, 147(5), 051207.}
-
-\item \href{https://doi.org/10.1115/1.4068058}{% 
-Venkateswarlu, V., \textbf{Vijay, K. G.}, \& Sannasiraj, S. A. (2025). Enhancement in hydrodynamic performance of a quarter-circular breakwater using a porous shield. \textit{Journal of Offshore Mechanics and Arctic Engineering}, 147(5), 051204.}
-
-\item \href{https://doi.org/10.1002/cjce.70057}{% 
-Chhabra, V., Nishad, C. S., \textbf{Vijay, K. G.}, \& Sahni, M. (2025). 2D MHD Brinkman flow around circular cylinders inside a microchannel exhibiting wall roughness. \textit{The Canadian Journal of Chemical Engineering}. (2025).}
-
-\item \href{https://doi.org/10.1016/j.enganabound.2024.105925}{%
-Chhabra, V., Nishad, C. S., \textbf{Vijay, K. G.}, \& Sahni, M. (2024). Stokes flow past an array of circular cylinders through slip-patterned microchannel using boundary element method. \textit{Engineering Analysis with Boundary Elements}, 169, 105925.}
-
-\item \href{https://doi.org/10.1063/5.0237370}{%
-Venkateswarlu, V., Panduranga, K., \textbf{Vijay, K. G.}, \& Behera, H. (2024). Evaluation of oscillating water column efficiency in the presence of multiple bottom-standing breakwaters under oblique waves. \textit{Physics of Fluids}, 36(11), 117175.}
-
-\item \href{https://link.springer.com/article/10.1007/s40722-024-00343-z}{%
-Rushikesh, K., \textbf{Vijay, K. G.}, Kumar, G. V., \& Venugopal, V. (2024). Coupled response analysis of a floating wind turbine with free hanging solid ballast. \textit{Journal of Ocean Engineering and Marine Energy}, 10(4), 749-772.}
-
-\item \href{https://doi.org/10.1016/j.enganabound.2024.105822}{%
-Appandairaj, R., \textbf{Vijay, K. G.}, Murali, K., \& Chen, J. T. (2024). Oblique wave interaction with dual submerged oscillating buoy as WEC near a partially reflecting wall. \textit{ENGINEERING ANALYSIS WITH BOUNDARY ELEMENTS}.166, 105822.}
- 
-\item \href{https://doi.org/10.1007/s00773-024-00994-5}{% 
-Srinu D., Venkateswarlu V., \textbf{Vijay, K. G.}, \& Atmanand, M. A. (2024). Hydrodynamic Analysis of an Oscillating Water Column in the Presence of Seabed Undulations. Journal of Marine Science and Technology, 29(2), 404-417.}
-
-\item \href{https://doi.org/10.1063/5.0179239}{%
-Venkateswarlu V., \textbf{Vijay, K. G.}, Behera H., \& Nishad, C. S. (2024). Oblique Wave Trapping by Sinusoidal Rippled Barrier of Finite Thickness Placed on Closely Spaced Semi-Circular Seabed. \textit{Physics of Fluids}, 36(1), 015161.}
- 
-\item \href{https://doi.org/10.1115/1.4064013}{% 
-Keerthi Raaj S., \textbf{Vijay, K. G.}, Neelamani. S., Saha N., \&  Sundaravadivelu, R. (2024). Gravity wave interaction with a composite pile-rock breakwater. \textit{Journal of Offshore Mechanics and Arctic Engineering}, 146(3), 031903. [IF: 1.76]}
-
-\item \href{https://doi.org/10.1002/zamm.202200064}{% 
-Nishad, C. S., Neelamani, S., Chen, J. T., \& \textbf{Vijay, K. G.} (2023). Gravity wave interaction with cage-enveloped breakwaters using DBEM. Journal of Applied Mathematics and Mechanics/Zeitschrift für Angewandte Mathematik und Mechanik, e202200064.}
- 
-\item \href{https://doi.org/10.1115/1.4062114}{% 
-Venkateswarlu, V., Sanjeeva Rayudu. E., Dhanunjaya. E., \& \textbf{Vijay, K. G.} (2023). Wave Action Analysis of Multiple Bottom Fixed Semi-Circular Breakwaters in the Presence of a Floating Dock. \textit{Journal of Offshore Mechanics and Arctic Engineering}, 145(6), 061201.}  
-
-\item \href{https://doi.org/10.1016/j.energy.2023.127605}{%
-Mohapatra, P., \textbf{Vijay, K. G.}, Bhattacharyya, A., \& Sahoo, T. (2023). Influence of distinct bottom geometries on the hydrodynamic performance of an OWC device.  \textit{Energy}, 277, 127605.}
-
-\item \href{https://doi.org/10.1016/j.oceaneng.2022.112964}{%
-\textbf{Vijay, K. G.}, Neelamani, S., \& AlYousif, A. (2022). Hydrodynamic analyses of multiple porous plates attached to the front of a vertical composite breakwater.  \textit{Ocean Engineering}, 266, 112964.}
-
-\item \href{https://doi.org/10.1016/j.oceaneng.2022.112259}{%
-Venkateswarlu, V., \textbf{Vijay, K. G.}, Nishad, C. S., \& Sahoo, T. (2022). Gravity wave scattering by retrofitted circular breakwaters using dual boundary integral formulation. \textit{Ocean Engineering}, 265, 112259.}
-
-\item \href{https://doi.org/10.1061/(ASCE)WW.1943-5460.0000729}{% 
-Nishad, C. S., Neelamani, S., \textbf{Vijay, K. G.}, \& Sahoo, T. (2022). Bragg Scattering of Surface Gravity Waves by an Array of Surface-Piercing Variable Porosity Barriers. \textit{Journal of Waterway, Port, Coastal, and Ocean Engineering}, 148(6), 04022021.}
-
-\item \href{https://doi.org/10.1016/j.apor.2022.103203}{% 
-Koley, S., \textbf{Vijay, K. G.}, Nishad, C. S., \& Sundaravadivelu, R. (2022). Performance of a submerged flexible membrane and a breakwater in the presence of a seawall. \textit{Applied Ocean Research}, 124, 103203.}
-
-\item \href{https://doi.org/10.1016/j.oceaneng.2022.111420}{% 
-\textbf{Vijay, K. G.}, Neelamani, S., \& AlYousif, A. (2022). Numerical analysis of the performance of a horizontal porous plate attached to the front of a vertical wall. \textit{Ocean Engineering}, 255, 111420.}
-
-\item \href{https://doi.org/10.1177/14750902221096019}{%
-Suresh Kumar, D., \textbf{Vijay, K. G.}, Achani, D., Sunny, M.R., \& Sahoo, T. Wave-induced seepage force on a buried pipe in the presence of a floating structure. Proceedings of the Institution of Mechanical Engineers, Part M: Journal of Engineering for the Maritime Environment.}
-
-\item \href{https://doi.org/10.1115/1.4052635}{%
-\textbf{Vijay, K. G.}, Koley, S., Trivedi, K., \& Nishad, C. S. (2022). Hydrodynamic coefficients of a floater near a partially reflecting seawall in the presence of an array of caisson blocks. \textit{Journal of Offshore Mechanics and Arctic Engineering}, 144(2).}
-
-\item \href{https://doi.org/10.1016/j.jher.2022.02.001}{% 
-Kumaran, V., Neelamani, S., \textbf{Vijay, K. G.}, Al-Anjari, N., \& Al-Ragum, A. (2022). Wave attenuation by multiple slotted barriers with a zig-zag arrangement - A physical and numerical approach. \textit{Journal of Hydro-environment Research}, 41, 25-37.}
-
-\item \href{https://doi.org/10.1016/j.wavemoti.2021.102807}{% 
-\textbf{Vijay, K. G.}, Venkateswarlu, V., \& Sahoo, T. (2021). Bragg Scattering of Surface Gravity Waves by an Array of Submerged Breakwaters and a Floating Dock. \textit{Wave Motion}, 106, 102807.}
-
-\item \href{https://doi.org/10.1080/17455030.2021.1948145}{%
-Nishad, C. S., \textbf{Vijay, K. G.}, Neelamani, S., \& Sekhar, G. P. (2021). Dual Boundary Element Analysis for a Pair of Inverted T-type Porous Barriers having Nonlinear Pressure Drop. \textit{Waves in Random and Complex Media}, 1-25.}
-
-\item \href{https://doi.org/10.1016/j.enganabound.2021.06.011}{% 
-Nishad, C. S.,\textbf{Vijay, K. G.}, Neelamani, S., \& Chen, J. T. (2021). Dual BEM for Wave Scattering by an H-Type Porous Barrier with Nonlinear Pressure Drop. \textit{Engineering Analysis with Boundary Elements}, 131, 280-294.} 
-
-\item \href{https://doi.org/10.1016/j.oceaneng.2021.109242}{%
-Venkateswarlu, V., \textbf{Vijay, K. G.}, \& Nishad, C. S. (2021). Iterative Dual Boundary Element Analysis of a Wavy Porous Plate near an Inclined Seawall. \textit{Ocean Engineering}, 235, 109242.}
-
-\item \href{https://doi.org/10.1080/21664250.2021.1909965}{%
-Nishad, C. S., Neelamani, S., \& \textbf{Vijay, K. G.} (2021). Hydrodynamic analysis of a seaside quarter-circular breakwater with an array of porous cages using DBEM. \textit{Coastal Engineering Journal}, 1-16.}
-
-\item \href{https://doi.org/10.1007/s11012-021-01339-x}{% 
-Zhao, Y., \textbf{Vijay, K. G.}, Neelamani, S., \& Liu, Y. (2021). Analytical study for oblique wave interaction with a submerged horizontal perforated plate near a partially reflecting vertical wall. \textit{Meccanica}, 1-20.}
-
-
-\item \href{https://doi.org/10.1080/17445302.2021.1880183}{%
-Venkateswarlu, V., Praveen, K.M., \textbf{Vijay, K. G.}, Anil, K., \& Karmakar, D. (2021). Oblique wave interaction with a two-layer pile-rock breakwater placed on elevated bottom. \textit{Ships and Offshore Structures}.}
-
-\item \href{https://doi.org/10.1115/1.4050058}{% 
-Venkateswarlu, V., \textbf{Vijay, K. G.}, Rajapandi, R., \& Nishad, C. S. (2021). Wave trapping efficiency of a flexible porous membrane near a partially reflecting seawall. \textit{Journal of Offshore Mechanics and Arctic Engineering}.}
-
-\item \href{https://doi.org/10.12989/ose.2021.11.4.353}{%
-Sahaj, K. V., Nasar, T., \&\textbf{Vijay, K. G.} (2021). Experimental study on liquid sloshing with dual vertical porous baffles in a sway excited tank. \textit{Ocean Systems Engineering}, 11(4), 353.}
-
-\item \href{https://doi.org/10.1016/j.enganabound.2020.10.019}{% 
-\textbf{Vijay, K. G.}, Nishad, C. S., Neelamani, S., \& Sahoo, T. (2020). Wave interaction with multiple wavy porous barriers using dual boundary element method. \textit{Engineering Analysis with Boundary Elements}, 122, 176-189.}
-
-\item \href{https://doi.org/10.1016/j.oceaneng.2020.108273}{%
-Mohapatra, A. K., \textbf{Vijay, K. G.}, \& Sahoo, T. (2020). Bragg scattering of surface gravity waves by a submerged wavy porous plate. \textit{Ocean Engineering}, 108273.}
-
-\item \href{https://doi.org/10.1115/1.4048789}{% 
-Mohapatra, P., \textbf{Vijay, K. G.}, Bhattacharyya, A., \& Sahoo, T. (2020). Performance of a shore fixed OWC device for different bottom slopes and front wall drafts: A study based on CFD and BIEM. \textit{Journal of Offshore Mechanics and Arctic Engineering}, 1-40.} 
-
-\item \href{https://doi.org/10.1016/j.oceaneng.2020.108149}{%
-\textbf{Vijay, K. G.}, Venkateswarlu, V., \& Nishad, C. S. (2020). Wave scattering by inverted trapezoidal porous boxes using dual boundary element method. \textit{Ocean Engineering}, 108149.}
-
-\item \href{https://doi.org/10.1080/17445302.2020.1827630}{%
-\textbf{Vijay, K. G.}, Neelamani, S., Salem, K., Sahoo, T., \& Nishad, C. S. (2020). Scattering of gravity waves by a pontoon type breakwater with a series of pervious and impervious skirt walls. \textit{Ships and Offshore Structures}, 1-13.}
-
-\item \href{https://doi.org/10.1177/1475090220960848}{%
-\textbf{Vijay, K. G.}, Neelamani, S., Nishad, C. S., \& Sahoo, T. (2020). Gravity wave interaction with multiple artificial reefs. Proceedings of the Institution of Mechanical Engineers, Part M: Journal of Engineering for the Maritime Environment.}
-
-\item \href{https://doi.org/10.1007/s13369-020-04767-1}{%
-\textbf{Vijay, K. G.}, Venkateswarlu, V., \& Karmakar, D. (2020). Scattering of Gravity Waves by Multiple Submerged Rubble-Mound Breakwaters. \textit{Arabian Journal for Science and Engineering}, 1-22.}
-
-\item \href{https://doi.org/10.1080/17445302.2020.1789034}{% 
-\textbf{Vijay, K. G.}, He, S. Y., Zhao, Y., Liu, Y., \& Sahoo, T. (2020). Gravity wave interaction with a submerged wavy porous plate. \textit{Ships and Offshore Structures}, 1-11.}
-
-\item \href{https://doi.org/10.1016/j.apor.2020.102206}{% 
-\textbf{Vijay, K. G.}, Nishad, C. S., Neelamani, S., \& Sahoo, T. (2020). Gravity wave interaction with a wave attenuating system. \textit{Applied Ocean Research}, 101, 102206.}
-
-\item \href{https://doi.org/10.1080/09715010.2018.1437790}{%
-\textbf{Vijay, K. G.}, Karmakar, D., \& Soares, C. G. (2020). Long term response analysis of TLP-type offshore wind turbine. \textit{ISH Journal of Hydraulic Engineering}, 26(1).}
-
-\item \href{https://doi.org/10.1080/21664250.2019.1691339}{% 
-\textbf{Vijay, K. G.}, Sahoo, T., \& Datta, R. (2020). Wave-induced responses of a floating structure near a wall in the presence of permeable plates. \textit{Coastal Engineering Journal}, 62(1), 35-52.}
-
-\item \href{https://doi.org/10.1016/j.oceaneng.2019.106623}{% 
-\textbf{Vijay, K. G.}, Neelamani, S., \& Sahoo, T. (2019). Wave interaction with multiple slotted barriers inside harbour: Physical and numerical modelling. \textit{Ocean Engineering, 193, 106623}.}
-
-\item \href{https://doi.org/10.1115/1.4043415}{
-\textbf{Vijay, K. G.}, \& Sahoo, T. (2019). Scattering of surface gravity waves by a pair of floating porous boxes. \textit{Journal of Offshore Mechanics and Arctic Engineering}, 141(5).}
-\end{enumerate}
-
-\begin{comment}
-\textbf{Journal Articles (Revision submitted/Comments received for revision)} - 3
-
-\begin{enumerate}[label=\protect\circled{\arabic*}]
-    \justifying
-
-   \item \textbf{Vijay, K. G.}, Neelamani, S., \& Nishad, C. S. Hydrodynamic Analysis of a Seaside Quarter-Circle Breakwater with an Array of Porous Cages using DBEM. Coastal Engineering Journal, (R1 submitted).
-   
-   \item Y. Zhao., \textbf{Vijay, K. G.}, Neelamani, S., \& Liu, Y. Analytical study for oblique wave interaction with a submerged horizontal perforated plate near a partially reflecting vertical wall. Meccanica, (R1 submitted).
-
-    \item \textbf{Vijay, K. G.}, Venkateswarlu, V., \& Sahoo, T. Bragg Scattering of Surface Gravity Waves by an Array of Submerged Breakwaters and a Floating Dock. Wave Motion, (R1 submitted).
-
-\end{enumerate}
-
-
-\ 
-\textbf{Journal Articles (Under first revision/New submission)} - 3
-
-\begin{enumerate}[label=\protect\circled{\arabic*}]
-    \justifying
-   
-   \item Nishad, C. S., \textbf{Vijay, K. G.}, Neelamani, S., \& Sekhar, G. R., Dual Boundary Element Analysis for a Pair of Inverted T-type Porous Barriers having Nonlinear Pressure Drop. Waves in Random and Complex Media.
-   
-   \item \textbf{Vijay, K. G.}, Nishad, C. S., Neelamani, S., \& Chen, J. T., Dual BEM for Wave Scattering by a H-Type Porous Barrier with Nonlinear Pressure Drop. Engineering Analysis with Boundary Elements.
-   
-   \item Venkateswarlu, V., \textbf{Vijay, K. G.}, Nishad, C. S., \& Sahoo, T., Gravity Wave Scattering by Retrofitted Circular Breakwaters using Dual Boundary Integral Formulation. Ocean Engineering.
-    
-\end{enumerate}
-\end{comment}
-
+[
+  {
+    "title": "Physical and numerical modelling of a multifunctional double-curtain wall heaving floater for wave energy and coastal protection",
+    "authors": "Appandairaj, R., Vijay, K. G., Li, A. J., & Liu, Y.",
+    "journal": "Ocean Engineering",
+    "volume": "361",
+    "issue": "",
+    "pages": "126032",
+    "year": "2026",
+    "doi": "https://doi.org/10.1016/j.oceaneng.2026.126032",
+    "type": "Journal"
+  },
+  {
+    "title": "Hydrodynamic performance of a porous double-wing funnel breakwater: An experimental and numerical investigation",
+    "authors": "AlYousif, A., Venkateswarlu, V., & Vijay, K. G.",
+    "journal": "Ocean Engineering",
+    "volume": "358",
+    "issue": "",
+    "pages": "125785",
+    "year": "2026",
+    "doi": "https://doi.org/10.1016/j.oceaneng.2026.125785",
+    "type": "Journal"
+  },
+  {
+    "title": "Numerical and experimental investigation of offshore breakwater with detachable top structures in wave-current environments",
+    "authors": "Jins, M. M., Vijay, K. G., & Behera, H.",
+    "journal": "Ocean Engineering",
+    "volume": "354",
+    "issue": "",
+    "pages": "",
+    "year": "2026",
+    "doi": "https://doi.org/10.1016/j.oceaneng.2026.124787",
+    "type": "Journal"
+  },
+  {
+    "title": "Experimental and numerical investigations on the hydrodynamics of multi-chambered porous breakwaters with a backwall",
+    "authors": "Jins, M. M., Kumaran, V., Vijay, K. G., & De, S.",
+    "journal": "Ocean Engineering",
+    "volume": "353",
+    "issue": "",
+    "pages": "",
+    "year": "2026",
+    "doi": "https://doi.org/10.1016/j.oceaneng.2026.124582",
+    "type": "Journal"
+  },
+  {
+    "title": "Regional frequency analysis of extreme ocean waves along the Indian coastline in a changing climate",
+    "authors": "Lincy Jancy, Vijay, K. G., Poguluri Sunny Kumar, G. Muraleedharan, & K. Murali",
+    "journal": "Ocean Engineering",
+    "volume": "352",
+    "issue": "",
+    "pages": "124413",
+    "year": "2026",
+    "doi": "https://doi.org/10.1016/j.oceaneng.2026.124413",
+    "type": "Journal"
+  },
+  {
+    "title": "Hydrodynamic Performance of Nested Rectangular Aquaculture Cages under Wave Action",
+    "authors": "Salman, S.,Vijay, K. G., & Behera, H.",
+    "journal": "Physics of Fluids",
+    "volume": "38",
+    "issue": "",
+    "pages": "027111",
+    "year": "2026",
+    "doi": "https://doi.org/10.1063/5.0313865",
+    "type": "Journal"
+  },
+  {
+    "title": "Hydrodynamic Shielding by Distributed Standalone Perforated Cage Systems for Fish Farming",
+    "authors": "Salman, S., & Vijay, K. G.",
+    "journal": "Ocean Engineering",
+    "volume": "351",
+    "issue": "",
+    "pages": "124389",
+    "year": "2026",
+    "doi": "https://doi.org/10.1016/j.oceaneng.2026.124389",
+    "type": "Journal"
+  },
+  {
+    "title": "Experimental investigations of floating archimedes spiral wind turbine on a semi-submersible with solid ballast stabilization",
+    "authors": "Rushikesh, K.,Vijay, K. G., & Sriram, V.",
+    "journal": "Ocean Engineering",
+    "volume": "347",
+    "issue": "",
+    "pages": "123653",
+    "year": "2026",
+    "doi": "https://doi.org/10.1016/j.oceaneng.2025.123653",
+    "type": "Journal"
+  },
+  {
+    "title": "Investigation on the mechanical behavior of a deep-sea mining riser with multibooster stations",
+    "authors": "Ganesh, E. S., Sugathan, A., & Vijay, K. G.",
+    "journal": "Journal of Pipeline Systems Engineering and Practice",
+    "volume": "17",
+    "issue": "1",
+    "pages": "04025079",
+    "year": "2026",
+    "doi": "https://doi.org/10.1061/JPSEA2.PSENG-1841",
+    "type": "Journal"
+  },
+  {
+    "title": "Gap resonance effects on the performance of oscillating water column under the influence of wave currents",
+    "authors": "AlYousif, A., Venkateswarlu, V., & Vijay, K. G.",
+    "journal": "Journal of Offshore Mechanics and Arctic Engineering",
+    "volume": "148",
+    "issue": "1",
+    "pages": "012004",
+    "year": "2026",
+    "doi": "https://doi.org/10.1115/1.4069057",
+    "type": "Journal"
+  },
+  {
+    "title": "Hydrodynamic performance of a submerged hydrofoil wave energy converter (SH-WEC) with latching control mechanism",
+    "authors": "Appandairaj, R., Vijay, K. G., Sheng, W., & Chen, J. T.",
+    "journal": "Engineering Analysis with Boundary Elements",
+    "volume": "181",
+    "issue": "",
+    "pages": "106524",
+    "year": "2025",
+    "doi": "https://doi.org/10.1016/j.enganabound.2025.106524",
+    "type": "Journal"
+  },
+  {
+    "title": "Wave scattering by a pair of floating pontoons connected with a porous cage",
+    "authors": "Venkateswarlu, V., Behera, H., Vijay, K. G., & Sahoo, T.",
+    "journal": "Ships and Offshore Structures",
+    "volume": "1-22",
+    "issue": "",
+    "pages": "",
+    "year": "2025",
+    "doi": "https://doi.org/10.1080/17445302.2025.2453276",
+    "type": "Journal"
+  },
+  {
+    "title": "Numerical and experimental investigation on a dual pontoon supported compartmentalized porous cages",
+    "authors": "Salman, S., Vijay, K. G., Nishad, C. S., & Chen, J. T.",
+    "journal": "Engineering Analysis with Boundary Elements",
+    "volume": "179",
+    "issue": "",
+    "pages": "106353",
+    "year": "2025",
+    "doi": "https://doi.org/10.1016/j.enganabound.2025.106353",
+    "type": "Journal"
+  },
+  {
+    "title": "Analysis of wave trapping by a submerged viscoelastic plate near a partially reflecting vertical wall with uneven seabed",
+    "authors": "Panduranga, K., Venkateswarlu, V., Koley, S., & Vijay, K. G.",
+    "journal": "Engineering Analysis with Boundary Elements",
+    "volume": "179",
+    "issue": "",
+    "pages": "",
+    "year": "2025",
+    "doi": "https://doi.org/10.1016/j.enganabound.2025.106370",
+    "type": "Journal"
+  },
+  {
+    "title": "Sloshing reduction in a swaying tank with porous baffles using scaled boundary finite element method",
+    "authors": "Pramod, A. L. N., Choudhury, A., & Vijay, K. G., Ooi, E. T., & Natarajan, S.",
+    "journal": "Physics of Fluids",
+    "volume": "37",
+    "issue": "7",
+    "pages": "",
+    "year": "2025",
+    "doi": "https://doi.org/10.1063/5.0270425",
+    "type": "Journal"
+  },
+  {
+    "title": "Scattering of surface waves by a submerged wavy porous plate floating over seabed undulations under oblique waves",
+    "authors": "Panduranga, K., Venkateswarlu, V., Vijay, K. G., & Sahoo, T.",
+    "journal": "Journal of Engineering for the Maritime Environment",
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "year": "2025",
+    "doi": "https://doi.org/10.1177/14750902251329077",
+    "type": "Journal"
+  },
+  {
+    "title": "Experimental and numerical evaluation of chambered porous barriers in the presence of seawall",
+    "authors": "Marshal Jins, M., Appandairaj, R., Vijay, K. G. & Sriram, V.",
+    "journal": "Physics of Fluids",
+    "volume": "37",
+    "issue": "9",
+    "pages": "",
+    "year": "2025",
+    "doi": "https://doi.org/10.1063/5.0284532",
+    "type": "Journal"
+  },
+  {
+    "title": "Gravity wave scattering by barge integrated porous cages",
+    "authors": "Salman, S., Vijay, K. G., Behera, H., & Chen, J. T.",
+    "journal": "Physics of Fluids",
+    "volume": "37",
+    "issue": "8",
+    "pages": "",
+    "year": "2025",
+    "doi": "https://doi.org/10.1063/5.0278863",
+    "type": "Journal"
+  },
+  {
+    "title": "Oblique wave interaction with a floating dock in the presence of inverted trapezoidal pile-rock breakwaters",
+    "authors": "Jins, M. M., Vijay, K. G., Venkateswarlu, V., & Behera, H.",
+    "journal": "Engineering Analysis with Boundary Elements",
+    "volume": "172",
+    "issue": "",
+    "pages": "106111",
+    "year": "2025",
+    "doi": "https://doi.org/10.1016/j.enganabound.2024.106111",
+    "type": "Journal"
+  },
+  {
+    "title": "Numerical investigations on the VIV response of a deep-water drilling riser with buoyancy modules",
+    "authors": "Sugathan, A., & Vijay, K. G.",
+    "journal": "Applied Ocean Research",
+    "volume": "161",
+    "issue": "",
+    "pages": "",
+    "year": "2025",
+    "doi": "https://doi.org/10.1016/j.apor.2025.104650",
+    "type": "Journal"
+  },
+  {
+    "title": "Bragg scattering of surface gravity waves by a graded array of surface-piercing porous barriers of arbitrary configurations: A numerical approach",
+    "authors": "Chanda, A., Appandairaj, R., Vijay, K. G., Sahoo, T., & Meylan, M. H.",
+    "journal": "Physics of Fluids",
+    "volume": "37",
+    "issue": "1",
+    "pages": "012119",
+    "year": "2025",
+    "doi": "https://doi.org/10.1063/5.0234244",
+    "type": "Journal"
+  },
+  {
+    "title": "Lipwall effects on a shore-front oscillating water column based on DBEM and CFD",
+    "authors": "Narendran, K., & Vijay, K. G.",
+    "journal": "Journal of Offshore Mechanics and Arctic Engineering",
+    "volume": "147",
+    "issue": "1",
+    "pages": "",
+    "year": "2025",
+    "doi": "https://doi.org/10.1115/1.4064616",
+    "type": "Journal"
+  },
+  {
+    "title": "Bragg resonance by a pair of sinusoidal seabed patches with floating funnel breakwater",
+    "authors": "AlYousif, A., Venkateswarlu, V., & Vijay, K. G.",
+    "journal": "Journal of Offshore Mechanics and Arctic Engineering",
+    "volume": "147",
+    "issue": "5",
+    "pages": "051207",
+    "year": "2025",
+    "doi": "https://doi.org/10.1115/1.4069178",
+    "type": "Journal"
+  },
+  {
+    "title": "Enhancement in hydrodynamic performance of a quarter-circular breakwater using a porous shield",
+    "authors": "Venkateswarlu, V., Vijay, K. G., & Sannasiraj, S. A.",
+    "journal": "Journal of Offshore Mechanics and Arctic Engineering",
+    "volume": "147",
+    "issue": "5",
+    "pages": "051204",
+    "year": "2025",
+    "doi": "https://doi.org/10.1115/1.4068058",
+    "type": "Journal"
+  },
+  {
+    "title": "2D MHD Brinkman flow around circular cylinders inside a microchannel exhibiting wall roughness",
+    "authors": "Chhabra, V., Nishad, C. S., Vijay, K. G., & Sahni, M.",
+    "journal": "The Canadian Journal of Chemical Engineering",
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "year": "2025",
+    "doi": "https://doi.org/10.1002/cjce.70057",
+    "type": "Journal"
+  },
+  {
+    "title": "Stokes flow past an array of circular cylinders through slip-patterned microchannel using boundary element method",
+    "authors": "Chhabra, V., Nishad, C. S., Vijay, K. G., & Sahni, M.",
+    "journal": "Engineering Analysis with Boundary Elements",
+    "volume": "169",
+    "issue": "",
+    "pages": "105925",
+    "year": "2024",
+    "doi": "https://doi.org/10.1016/j.enganabound.2024.105925",
+    "type": "Journal"
+  },
+  {
+    "title": "Evaluation of oscillating water column efficiency in the presence of multiple bottom-standing breakwaters under oblique waves",
+    "authors": "Venkateswarlu, V., Panduranga, K., Vijay, K. G., & Behera, H.",
+    "journal": "Physics of Fluids",
+    "volume": "36",
+    "issue": "11",
+    "pages": "117175",
+    "year": "2024",
+    "doi": "https://doi.org/10.1063/5.0237370",
+    "type": "Journal"
+  },
+  {
+    "title": "Coupled response analysis of a floating wind turbine with free hanging solid ballast",
+    "authors": "Rushikesh, K., Vijay, K. G., Kumar, G. V., & Venugopal, V.",
+    "journal": "Journal of Ocean Engineering and Marine Energy",
+    "volume": "10",
+    "issue": "4",
+    "pages": "749-772",
+    "year": "2024",
+    "doi": "https://link.springer.com/article/10.1007/s40722-024-00343-z",
+    "type": "Journal"
+  },
+  {
+    "title": "Oblique wave interaction with dual submerged oscillating buoy as WEC near a partially reflecting wall",
+    "authors": "Appandairaj, R., Vijay, K. G., Murali, K., & Chen, J. T.",
+    "journal": "ENGINEERING ANALYSIS WITH BOUNDARY ELEMENTS",
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "year": "2024",
+    "doi": "https://doi.org/10.1016/j.enganabound.2024.105822",
+    "type": "Journal"
+  },
+  {
+    "title": "Hydrodynamic Analysis of an Oscillating Water Column in the Presence of Seabed Undulations",
+    "authors": "Srinu D., Venkateswarlu V., Vijay, K. G., & Atmanand, M. A.",
+    "journal": "Journal of Marine Science and Technology",
+    "volume": "29",
+    "issue": "2",
+    "pages": "404-417",
+    "year": "2024",
+    "doi": "https://doi.org/10.1007/s00773-024-00994-5",
+    "type": "Journal"
+  },
+  {
+    "title": "Oblique Wave Trapping by Sinusoidal Rippled Barrier of Finite Thickness Placed on Closely Spaced Semi-Circular Seabed",
+    "authors": "Venkateswarlu V., Vijay, K. G., Behera H., & Nishad, C. S.",
+    "journal": "Physics of Fluids",
+    "volume": "36",
+    "issue": "1",
+    "pages": "015161",
+    "year": "2024",
+    "doi": "https://doi.org/10.1063/5.0179239",
+    "type": "Journal"
+  },
+  {
+    "title": "Gravity wave interaction with a composite pile-rock breakwater",
+    "authors": "Keerthi Raaj S., Vijay, K. G., Neelamani. S., Saha N., & Sundaravadivelu, R.",
+    "journal": "Journal of Offshore Mechanics and Arctic Engineering",
+    "volume": "146",
+    "issue": "3",
+    "pages": "031903",
+    "year": "2024",
+    "doi": "https://doi.org/10.1115/1.4064013",
+    "type": "Journal"
+  },
+  {
+    "title": "Gravity wave interaction with cage-enveloped breakwaters using DBEM",
+    "authors": "Nishad, C. S., Neelamani, S., Chen, J. T., & Vijay, K. G.",
+    "journal": "Journal of Applied Mathematics and Mechanics (ZAMM)",
+    "volume": "",
+    "issue": "",
+    "pages": "e202200064",
+    "year": "2023",
+    "doi": "https://doi.org/10.1002/zamm.202200064",
+    "type": "Journal"
+  },
+  {
+    "title": "Wave Action Analysis of Multiple Bottom Fixed Semi-Circular Breakwaters in the Presence of a Floating Dock",
+    "authors": "Venkateswarlu, V., Sanjeeva Rayudu. E., Dhanunjaya. E., & Vijay, K. G.",
+    "journal": "Journal of Offshore Mechanics and Arctic Engineering",
+    "volume": "145",
+    "issue": "6",
+    "pages": "061201",
+    "year": "2023",
+    "doi": "https://doi.org/10.1115/1.4062114",
+    "type": "Journal"
+  },
+  {
+    "title": "Influence of distinct bottom geometries on the hydrodynamic performance of an OWC device",
+    "authors": "Mohapatra, P., Vijay, K. G., Bhattacharyya, A., & Sahoo, T.",
+    "journal": "Energy",
+    "volume": "277",
+    "issue": "",
+    "pages": "127605",
+    "year": "2023",
+    "doi": "https://doi.org/10.1016/j.energy.2023.127605",
+    "type": "Journal"
+  },
+  {
+    "title": "Hydrodynamic analyses of multiple porous plates attached to the front of a vertical composite breakwater",
+    "authors": "Vijay, K. G., Neelamani, S., & AlYousif, A.",
+    "journal": "Ocean Engineering",
+    "volume": "266",
+    "issue": "",
+    "pages": "112964",
+    "year": "2022",
+    "doi": "https://doi.org/10.1016/j.oceaneng.2022.112964",
+    "type": "Journal"
+  },
+  {
+    "title": "Gravity wave scattering by retrofitted circular breakwaters using dual boundary integral formulation",
+    "authors": "Venkateswarlu, V., Vijay, K. G., Nishad, C. S., & Sahoo, T.",
+    "journal": "Ocean Engineering",
+    "volume": "265",
+    "issue": "",
+    "pages": "112259",
+    "year": "2022",
+    "doi": "https://doi.org/10.1016/j.oceaneng.2022.112259",
+    "type": "Journal"
+  },
+  {
+    "title": "Bragg Scattering of Surface Gravity Waves by an Array of Surface-Piercing Variable Porosity Barriers",
+    "authors": "Nishad, C. S., Neelamani, S., Vijay, K. G., & Sahoo, T.",
+    "journal": "Journal of Waterway, Port, Coastal, and Ocean Engineering",
+    "volume": "148",
+    "issue": "6",
+    "pages": "04022021",
+    "year": "2022",
+    "doi": "https://doi.org/10.1061/(ASCE)WW.1943-5460.0000729",
+    "type": "Journal"
+  },
+  {
+    "title": "Performance of a submerged flexible membrane and a breakwater in the presence of a seawall",
+    "authors": "Koley, S., Vijay, K. G., Nishad, C. S., & Sundaravadivelu, R.",
+    "journal": "Applied Ocean Research",
+    "volume": "124",
+    "issue": "",
+    "pages": "103203",
+    "year": "2022",
+    "doi": "https://doi.org/10.1016/j.apor.2022.103203",
+    "type": "Journal"
+  },
+  {
+    "title": "Numerical analysis of the performance of a horizontal porous plate attached to the front of a vertical wall",
+    "authors": "Vijay, K. G., Neelamani, S., & AlYousif, A.",
+    "journal": "Ocean Engineering",
+    "volume": "255",
+    "issue": "",
+    "pages": "111420",
+    "year": "2022",
+    "doi": "https://doi.org/10.1016/j.oceaneng.2022.111420",
+    "type": "Journal"
+  },
+  {
+    "title": "Wave-induced seepage force on a buried pipe in the presence of a floating structure",
+    "authors": "Suresh Kumar, D., Vijay, K. G., Achani, D., Sunny, M. R., & Sahoo, T.",
+    "journal": "Proceedings of the Institution of Mechanical Engineers, Part M: Journal of Engineering for the Maritime Environment",
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "year": "2022",
+    "doi": "https://doi.org/10.1177/14750902221096019",
+    "type": "Journal"
+  },
+  {
+    "title": "Hydrodynamic coefficients of a floater near a partially reflecting seawall in the presence of an array of caisson blocks",
+    "authors": "Vijay, K. G., Koley, S., Trivedi, K., & Nishad, C. S.",
+    "journal": "Journal of Offshore Mechanics and Arctic Engineering",
+    "volume": "144",
+    "issue": "2",
+    "pages": "",
+    "year": "2022",
+    "doi": "https://doi.org/10.1115/1.4052635",
+    "type": "Journal"
+  },
+  {
+    "title": "Wave attenuation by multiple slotted barriers with a zig-zag arrangement - A physical and numerical approach",
+    "authors": "Kumaran, V., Neelamani, S., Vijay, K. G., Al-Anjari, N., & Al-Ragum, A.",
+    "journal": "Journal of Hydro-environment Research",
+    "volume": "41",
+    "issue": "",
+    "pages": "25-37",
+    "year": "2022",
+    "doi": "https://doi.org/10.1016/j.jher.2022.02.001",
+    "type": "Journal"
+  },
+  {
+    "title": "Bragg Scattering of Surface Gravity Waves by an Array of Submerged Breakwaters and a Floating Dock",
+    "authors": "Vijay, K. G., Venkateswarlu, V., & Sahoo, T.",
+    "journal": "Wave Motion",
+    "volume": "106",
+    "issue": "",
+    "pages": "102807",
+    "year": "2021",
+    "doi": "https://doi.org/10.1016/j.wavemoti.2021.102807",
+    "type": "Journal"
+  },
+  {
+    "title": "Dual Boundary Element Analysis for a Pair of Inverted T-type Porous Barriers having Nonlinear Pressure Drop",
+    "authors": "Nishad, C. S., Vijay, K. G., Neelamani, S., & Sekhar, G. P.",
+    "journal": "Waves in Random and Complex Media",
+    "volume": "1-25",
+    "issue": "",
+    "pages": "",
+    "year": "2021",
+    "doi": "https://doi.org/10.1080/17455030.2021.1948145",
+    "type": "Journal"
+  },
+  {
+    "title": "Dual BEM for Wave Scattering by an H-Type Porous Barrier with Nonlinear Pressure Drop",
+    "authors": "Nishad, C. S.,Vijay, K. G., Neelamani, S., & Chen, J. T.",
+    "journal": "Engineering Analysis with Boundary Elements",
+    "volume": "131",
+    "issue": "",
+    "pages": "280-294",
+    "year": "2021",
+    "doi": "https://doi.org/10.1016/j.enganabound.2021.06.011",
+    "type": "Journal"
+  },
+  {
+    "title": "Iterative Dual Boundary Element Analysis of a Wavy Porous Plate near an Inclined Seawall",
+    "authors": "Venkateswarlu, V., Vijay, K. G., & Nishad, C. S.",
+    "journal": "Ocean Engineering",
+    "volume": "235",
+    "issue": "",
+    "pages": "109242",
+    "year": "2021",
+    "doi": "https://doi.org/10.1016/j.oceaneng.2021.109242",
+    "type": "Journal"
+  },
+  {
+    "title": "Hydrodynamic analysis of a seaside quarter-circular breakwater with an array of porous cages using DBEM",
+    "authors": "Nishad, C. S., Neelamani, S., & Vijay, K. G.",
+    "journal": "Coastal Engineering Journal",
+    "volume": "1-16",
+    "issue": "",
+    "pages": "",
+    "year": "2021",
+    "doi": "https://doi.org/10.1080/21664250.2021.1909965",
+    "type": "Journal"
+  },
+  {
+    "title": "Analytical study for oblique wave interaction with a submerged horizontal perforated plate near a partially reflecting vertical wall",
+    "authors": "Zhao, Y., Vijay, K. G., Neelamani, S., & Liu, Y.",
+    "journal": "Meccanica",
+    "volume": "1-20",
+    "issue": "",
+    "pages": "",
+    "year": "2021",
+    "doi": "https://doi.org/10.1007/s11012-021-01339-x",
+    "type": "Journal"
+  },
+  {
+    "title": "Oblique wave interaction with a two-layer pile-rock breakwater placed on elevated bottom",
+    "authors": "Venkateswarlu, V., Praveen, K.M., Vijay, K. G., Anil, K., & Karmakar, D.",
+    "journal": "Ships and Offshore Structures",
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "year": "2021",
+    "doi": "https://doi.org/10.1080/17445302.2021.1880183",
+    "type": "Journal"
+  },
+  {
+    "title": "Wave trapping efficiency of a flexible porous membrane near a partially reflecting seawall",
+    "authors": "Venkateswarlu, V., Vijay, K. G., Rajapandi, R., & Nishad, C. S.",
+    "journal": "Journal of Offshore Mechanics and Arctic Engineering",
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "year": "2021",
+    "doi": "https://doi.org/10.1115/1.4050058",
+    "type": "Journal"
+  },
+  {
+    "title": "Experimental study on liquid sloshing with dual vertical porous baffles in a sway excited tank",
+    "authors": "Sahaj, K. V., Nasar, T., &Vijay, K. G.",
+    "journal": "Ocean Systems Engineering",
+    "volume": "11",
+    "issue": "4",
+    "pages": "353",
+    "year": "2021",
+    "doi": "https://doi.org/10.12989/ose.2021.11.4.353",
+    "type": "Journal"
+  },
+  {
+    "title": "Wave interaction with multiple wavy porous barriers using dual boundary element method",
+    "authors": "Vijay, K. G., Nishad, C. S., Neelamani, S., & Sahoo, T.",
+    "journal": "Engineering Analysis with Boundary Elements",
+    "volume": "122",
+    "issue": "",
+    "pages": "176-189",
+    "year": "2020",
+    "doi": "https://doi.org/10.1016/j.enganabound.2020.10.019",
+    "type": "Journal"
+  },
+  {
+    "title": "Bragg scattering of surface gravity waves by a submerged wavy porous plate",
+    "authors": "Mohapatra, A. K., Vijay, K. G., & Sahoo, T.",
+    "journal": "Ocean Engineering",
+    "volume": "108273",
+    "issue": "",
+    "pages": "",
+    "year": "2020",
+    "doi": "https://doi.org/10.1016/j.oceaneng.2020.108273",
+    "type": "Journal"
+  },
+  {
+    "title": "Performance of a shore fixed OWC device for different bottom slopes and front wall drafts: A study based on CFD and BIEM",
+    "authors": "Mohapatra, P., Vijay, K. G., Bhattacharyya, A., & Sahoo, T.",
+    "journal": "Journal of Offshore Mechanics and Arctic Engineering",
+    "volume": "1-40",
+    "issue": "",
+    "pages": "",
+    "year": "2020",
+    "doi": "https://doi.org/10.1115/1.4048789",
+    "type": "Journal"
+  },
+  {
+    "title": "Wave scattering by inverted trapezoidal porous boxes using dual boundary element method",
+    "authors": "Vijay, K. G., Venkateswarlu, V., & Nishad, C. S.",
+    "journal": "Ocean Engineering",
+    "volume": "108149",
+    "issue": "",
+    "pages": "",
+    "year": "2020",
+    "doi": "https://doi.org/10.1016/j.oceaneng.2020.108149",
+    "type": "Journal"
+  },
+  {
+    "title": "Scattering of gravity waves by a pontoon type breakwater with a series of pervious and impervious skirt walls",
+    "authors": "Vijay, K. G., Neelamani, S., Salem, K., Sahoo, T., & Nishad, C. S.",
+    "journal": "Ships and Offshore Structures",
+    "volume": "1-13",
+    "issue": "",
+    "pages": "",
+    "year": "2020",
+    "doi": "https://doi.org/10.1080/17445302.2020.1827630",
+    "type": "Journal"
+  },
+  {
+    "title": "Gravity wave interaction with multiple artificial reefs",
+    "authors": "Vijay, K. G., Neelamani, S., Nishad, C. S., & Sahoo, T.",
+    "journal": "Proceedings of the Institution of Mechanical Engineers, Part M: Journal of Engineering for the Maritime Environment",
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "year": "2020",
+    "doi": "https://doi.org/10.1177/1475090220960848",
+    "type": "Journal"
+  },
+  {
+    "title": "Scattering of Gravity Waves by Multiple Submerged Rubble-Mound Breakwaters",
+    "authors": "Vijay, K. G., Venkateswarlu, V., & Karmakar, D.",
+    "journal": "Arabian Journal for Science and Engineering",
+    "volume": "1-22",
+    "issue": "",
+    "pages": "",
+    "year": "2020",
+    "doi": "https://doi.org/10.1007/s13369-020-04767-1",
+    "type": "Journal"
+  },
+  {
+    "title": "Gravity wave interaction with a submerged wavy porous plate",
+    "authors": "Vijay, K. G., He, S. Y., Zhao, Y., Liu, Y., & Sahoo, T.",
+    "journal": "Ships and Offshore Structures",
+    "volume": "1-11",
+    "issue": "",
+    "pages": "",
+    "year": "2020",
+    "doi": "https://doi.org/10.1080/17445302.2020.1789034",
+    "type": "Journal"
+  },
+  {
+    "title": "Gravity wave interaction with a wave attenuating system",
+    "authors": "Vijay, K. G., Nishad, C. S., Neelamani, S., & Sahoo, T.",
+    "journal": "Applied Ocean Research",
+    "volume": "101",
+    "issue": "",
+    "pages": "102206",
+    "year": "2020",
+    "doi": "https://doi.org/10.1016/j.apor.2020.102206",
+    "type": "Journal"
+  },
+  {
+    "title": "Long term response analysis of TLP-type offshore wind turbine",
+    "authors": "Vijay, K. G., Karmakar, D., & Soares, C. G.",
+    "journal": "ISH Journal of Hydraulic Engineering",
+    "volume": "26",
+    "issue": "1",
+    "pages": "",
+    "year": "2020",
+    "doi": "https://doi.org/10.1080/09715010.2018.1437790",
+    "type": "Journal"
+  },
+  {
+    "title": "Wave-induced responses of a floating structure near a wall in the presence of permeable plates",
+    "authors": "Vijay, K. G., Sahoo, T., & Datta, R.",
+    "journal": "Coastal Engineering Journal",
+    "volume": "62",
+    "issue": "1",
+    "pages": "35-52",
+    "year": "2020",
+    "doi": "https://doi.org/10.1080/21664250.2019.1691339",
+    "type": "Journal"
+  },
+  {
+    "title": "Wave interaction with multiple slotted barriers inside harbour: Physical and numerical modelling",
+    "authors": "Vijay, K. G., Neelamani, S., & Sahoo, T.",
+    "journal": "Ocean Engineering, 193, 106623",
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "year": "2019",
+    "doi": "https://doi.org/10.1016/j.oceaneng.2019.106623",
+    "type": "Journal"
+  },
+  {
+    "title": "Scattering of surface gravity waves by a pair of floating porous boxes",
+    "authors": "Vijay, K. G., & Sahoo, T.",
+    "journal": "Journal of Offshore Mechanics and Arctic Engineering",
+    "volume": "141",
+    "issue": "5",
+    "pages": "",
+    "year": "2019",
+    "doi": "https://doi.org/10.1115/1.4043415",
+    "type": "Journal"
+  }
+]
