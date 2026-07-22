@@ -117,3 +117,20 @@ footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 2.5rem 
 @media (max-width: 480px) {
   .hero, .section, .stats-bar { padding: 2.5rem 1.2rem; }
 }
+/* =============================================
+   DOI Button Styles
+   ============================================= */
+.pub-doi {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.7rem;
+  background: #003366;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.pub-doi:hover {
+  background: #00509e;
+}
