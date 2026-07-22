@@ -1,176 +1,70 @@
-document.addEventListener("DOMContentLoaded", () => {
-
+fetch("data/publications.json")
+  .then(response => response.json())
+  .then(data => {
     const container = document.getElementById("publicationContainer");
     const searchBox = document.getElementById("searchPublication");
     const journalFilter = document.getElementById("journalFilter");
 
-    let publications = [];
+    // Update statistics
+    document.getElementById("paperCount").textContent = data.length;
 
-    fetch("data/publications.json")
-        .then(response => response.json())
-        .then(data => {
+    const journals = [...new Set(data.map(pub => pub.journal))].sort();
+    document.getElementById("journalCount").textContent = journals.length;
 
-            publications = data;
+    journals.forEach(journal => {
+      const option = document.createElement("option");
+      option.value = journal;
+      option.textContent = journal;
+      journalFilter.appendChild(option);
+    });
 
-            updateStatistics(publications);
+    function displayPublications(list) {
+      container.innerHTML = "";
 
-            populateJournalFilter(publications);
+      list.forEach(pub => {
+        const item = document.createElement("div");
+        item.className = "pub-item";
 
-            renderPublications(publications);
+        item.innerHTML = `
+          <div class="pub-title">${pub.title}</div>
+          <div class="pub-authors">${pub.authors}</div>
+          <div class="pub-journal">${pub.journal}</div>
+          <span class="pub-year">${pub.year}</span>
+          ${pub.doi ? `
+            <a href="${pub.doi}" target="_blank" class="pub-doi">DOI</a>
+          ` : ""}
+        `;
 
-        });
-
-    function updateStatistics(data) {
-
-        document.getElementById("paperCount").textContent = data.length;
-
-        const journals = [...new Set(data.map(p => p.journal))];
-        document.getElementById("journalCount").textContent = journals.length;
-
-        const years = data.map(p => p.year);
-        const maxYear = Math.max(...years);
-        const minYear = Math.min(...years);
-
-        document.getElementById("yearCount").textContent =
-            `${minYear} - ${maxYear}`;
+        container.appendChild(item);
+      });
     }
 
-    function populateJournalFilter(data) {
+    function filterPublications() {
+      const searchText = searchBox.value.toLowerCase();
+      const selectedJournal = journalFilter.value;
 
-        const journals =
-            [...new Set(data.map(p => p.journal))].sort();
+      const filtered = data.filter(pub => {
+        const matchesSearch =
+          pub.title.toLowerCase().includes(searchText) ||
+          pub.authors.toLowerCase().includes(searchText) ||
+          pub.journal.toLowerCase().includes(searchText) ||
+          pub.year.includes(searchText);
 
-        journals.forEach(journal => {
+        const matchesJournal =
+          selectedJournal === "all" ||
+          pub.journal === selectedJournal;
 
-            const option = document.createElement("option");
+        return matchesSearch && matchesJournal;
+      });
 
-            option.value = journal;
-
-            option.textContent = journal;
-
-            journalFilter.appendChild(option);
-
-        });
-
+      displayPublications(filtered);
     }
 
-    function renderPublications(data) {
+    searchBox.addEventListener("input", filterPublications);
+    journalFilter.addEventListener("change", filterPublications);
 
-        container.innerHTML = "";
-
-        const years =
-            [...new Set(data.map(p => p.year))]
-            .sort((a, b) => b - a);
-
-        years.forEach(year => {
-
-            const heading = document.createElement("h2");
-            heading.className = "publication-year";
-            heading.textContent = year;
-
-            container.appendChild(heading);
-
-            data.filter(p => p.year === year)
-                .forEach(pub => {
-
-                    const card = document.createElement("div");
-
-                    card.className = "pub-item";
-
-                    card.innerHTML = `
-
-                        <div class="pub-title">
-                            ${pub.title}
-                        </div>
-
-                        <div class="pub-authors">
-                            ${highlightAuthor(pub.authors)}
-                        </div>
-
-                        <div class="pub-journal">
-                            <em>${pub.journal}</em>
-
-                            ${pub.volume ? ", Vol. " + pub.volume : ""}
-
-                            ${pub.pages ? ", " + pub.pages : ""}
-                        </div>
-
-                        <div class="pub-buttons">
-
-                            ${pub.doi
-                                ? `<a class="doi-btn"
-                                     href="${pub.doi}"
-                                     target="_blank">
-                                     DOI
-                                   </a>`
-                                : ""}
-
-                        </div>
-
-                    `;
-
-                    container.appendChild(card);
-
-                });
-
-        });
-
-    }
-
-    function highlightAuthor(authors) {
-
-        return authors.replace(
-            /Vijay\s*K\.?\s*G\.?/gi,
-            "<strong>Vijay K. G.</strong>"
-        );
-
-    }
-
-    function applyFilters() {
-
-        const search =
-            searchBox.value.toLowerCase();
-
-        const journal =
-            journalFilter.value;
-
-        const filtered = publications.filter(pub => {
-
-            const text = (
-
-                pub.title +
-
-                " " +
-
-                pub.authors +
-
-                " " +
-
-                pub.journal +
-
-                " " +
-
-                pub.year
-
-            ).toLowerCase();
-
-            const matchesSearch =
-                text.includes(search);
-
-            const matchesJournal =
-                journal === "all" ||
-                pub.journal === journal;
-
-            return matchesSearch && matchesJournal;
-
-        });
-
-        renderPublications(filtered);
-
-    }
-
-    searchBox.addEventListener("input", applyFilters);
-
-    journalFilter.addEventListener("change", applyFilters);
-
-});
+    displayPublications(data);
+  })
+  .catch(error => {
+    console.error("Error loading publications:", error);
+  });
