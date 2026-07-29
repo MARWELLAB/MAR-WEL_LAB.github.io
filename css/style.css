@@ -52,6 +52,7 @@ a:hover { color: var(--accent); }
 .team-card:hover { transform: translateY(-4px); }
 .team-avatar { width: 90px; height: 90px; border-radius: 50%; background: var(--aqua); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 3px solid var(--ocean); overflow: hidden; }
 .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.team-avatar.pi-avatar {  width: 140px; height: 190px; border-radius: 6px; flex-shrink: 0;margin: 0;}
 .team-name { font-family: var(--font-head); font-size: 1rem; color: var(--navy); font-weight: 700; }
 .team-role { font-size: 0.82rem; color: var(--mid-gray); margin-top: 0.25rem; }
 .team-email { font-size: 0.8rem; color: var(--ocean); margin-top: 0.4rem; }
