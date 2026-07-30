@@ -56,6 +56,7 @@ a:hover { color: var(--accent); }
 .team-name { font-family: var(--font-head); font-size: 1rem; color: var(--navy); font-weight: 700; }
 .team-role { font-size: 0.82rem; color: var(--mid-gray); margin-top: 0.25rem; }
 .team-email { font-size: 0.8rem; color: var(--ocean); margin-top: 0.4rem; }
+.pi-site{font-size: 0.8rem; color: var(--ocean); margin-top: 0.4rem; }
 .pub-list { display: flex; flex-direction: column; gap: 1.2rem; }
 .pub-item { background: var(--white); border-left: 4px solid var(--ocean); padding: 1.2rem 1.5rem; border-radius: 0 var(--radius) var(--radius) 0; box-shadow: var(--shadow); }
 .pub-item:hover { border-left-color: var(--accent); }
