@@ -113,128 +113,155 @@ if (f) {
   });
 }
 
-/* =====================================================
-   MAR-WEL HERO VIDEO SLIDER
-   AUTO PLAY + MANUAL NEXT / PREVIOUS
-===================================================== */
+/* =========================================================
+   MAR-WEL LAB
+   4 VIDEO HERO SLIDER
+   AUTO PLAY + MANUAL NEXT/PREVIOUS
+========================================================= */
 
-const heroVideos = document.querySelectorAll(".hero-video");
+document.addEventListener("DOMContentLoaded", function () {
 
-const prevVideo = document.getElementById("prevVideo");
-const nextVideo = document.getElementById("nextVideo");
+    const videos = document.querySelectorAll(".hero-video");
 
-let currentVideo = 0;
+    const nextButton = document.getElementById("nextVideo");
+    const prevButton = document.getElementById("prevVideo");
+
+    let currentVideo = 0;
 
 
-/* =====================================================
-   SHOW VIDEO
-===================================================== */
+    /* Check whether videos exist */
 
-function showVideo(index) {
-
-    /* Previous from first → last */
-
-    if (index < 0) {
-        index = heroVideos.length - 1;
+    if (videos.length === 0) {
+        console.log("No hero videos found.");
+        return;
     }
 
 
-    /* Next from last → first */
+    /* Check buttons */
 
-    if (index >= heroVideos.length) {
-        index = 0;
+    if (!nextButton || !prevButton) {
+        console.log("Video navigation buttons not found.");
+        return;
     }
 
 
-    /* Stop all videos */
+    /* =====================================================
+       SHOW VIDEO
+    ===================================================== */
 
-    heroVideos.forEach(function(video) {
+    function showVideo(index) {
 
-        video.classList.remove("active");
+        /* Loop forward */
 
-        video.pause();
-
-    });
-
-
-    /* Current video */
-
-    currentVideo = index;
-
-    const video = heroVideos[currentVideo];
+        if (index >= videos.length) {
+            index = 0;
+        }
 
 
-    /* Show video */
+        /* Loop backward */
 
-    video.classList.add("active");
-
-
-    /* Start from beginning */
-
-    video.currentTime = 0;
-
-    video.muted = true;
+        if (index < 0) {
+            index = videos.length - 1;
+        }
 
 
-    /* Play video */
+        /* Stop all videos */
 
-    video.play().catch(function(error) {
+        videos.forEach(function (video) {
 
-        console.log("Autoplay blocked:", error);
+            video.pause();
 
-    });
+            video.classList.remove("active");
 
-}
+        });
 
 
-/* =====================================================
-   AUTOMATICALLY GO TO NEXT VIDEO
-===================================================== */
+        /* Set current video */
 
-heroVideos.forEach(function(video, index) {
+        currentVideo = index;
 
-    video.addEventListener("ended", function() {
+        const selectedVideo = videos[currentVideo];
 
-        /*
-         * Only change if this is
-         * the currently displayed video
-         */
 
-        if (index === currentVideo) {
+        /* Activate selected video */
 
-            showVideo(currentVideo + 1);
+        selectedVideo.classList.add("active");
+
+
+        /* Start from beginning */
+
+        selectedVideo.currentTime = 0;
+
+        selectedVideo.muted = true;
+
+
+        /* Play */
+
+        const playPromise = selectedVideo.play();
+
+
+        if (playPromise !== undefined) {
+
+            playPromise.catch(function (error) {
+
+                console.log(
+                    "Video autoplay was prevented:",
+                    error
+                );
+
+            });
 
         }
 
+    }
+
+
+    /* =====================================================
+       NEXT BUTTON
+    ===================================================== */
+
+    nextButton.addEventListener("click", function () {
+
+        showVideo(currentVideo + 1);
+
     });
 
+
+    /* =====================================================
+       PREVIOUS BUTTON
+    ===================================================== */
+
+    prevButton.addEventListener("click", function () {
+
+        showVideo(currentVideo - 1);
+
+    });
+
+
+    /* =====================================================
+       AUTOMATICALLY MOVE TO NEXT VIDEO
+       WHEN CURRENT VIDEO FINISHES
+    ===================================================== */
+
+    videos.forEach(function (video, index) {
+
+        video.addEventListener("ended", function () {
+
+            if (index === currentVideo) {
+
+                showVideo(currentVideo + 1);
+
+            }
+
+        });
+
+    });
+
+
+    /* =====================================================
+       START FIRST VIDEO
+    ===================================================== */
+
+    showVideo(0);
+
 });
-
-
-/* =====================================================
-   NEXT BUTTON
-===================================================== */
-
-nextVideo.addEventListener("click", function() {
-
-    showVideo(currentVideo + 1);
-
-});
-
-
-/* =====================================================
-   PREVIOUS BUTTON
-===================================================== */
-
-prevVideo.addEventListener("click", function() {
-
-    showVideo(currentVideo - 1);
-
-});
-
-
-/* =====================================================
-   START FIRST VIDEO
-===================================================== */
-
-showVideo(0);
