@@ -113,18 +113,128 @@ if (f) {
   });
 }
 
-<script>
-  const videos = document.querySelectorAll('.hero-video');
-  let current = 0;
+/* =====================================================
+   MAR-WEL HERO VIDEO SLIDER
+   AUTO PLAY + MANUAL NEXT / PREVIOUS
+===================================================== */
 
-  setInterval(() => {
-    videos[current].classList.remove('active');
-    videos[current].pause();
+const heroVideos = document.querySelectorAll(".hero-video");
 
-    current = (current + 1) % videos.length;
+const prevVideo = document.getElementById("prevVideo");
+const nextVideo = document.getElementById("nextVideo");
 
-    videos[current].classList.add('active');
-    videos[current].currentTime = 0;
-    videos[current].play();
-  }, 8000); // Change video every 8 seconds
-</script>
+let currentVideo = 0;
+
+
+/* =====================================================
+   SHOW VIDEO
+===================================================== */
+
+function showVideo(index) {
+
+    /* Previous from first → last */
+
+    if (index < 0) {
+        index = heroVideos.length - 1;
+    }
+
+
+    /* Next from last → first */
+
+    if (index >= heroVideos.length) {
+        index = 0;
+    }
+
+
+    /* Stop all videos */
+
+    heroVideos.forEach(function(video) {
+
+        video.classList.remove("active");
+
+        video.pause();
+
+    });
+
+
+    /* Current video */
+
+    currentVideo = index;
+
+    const video = heroVideos[currentVideo];
+
+
+    /* Show video */
+
+    video.classList.add("active");
+
+
+    /* Start from beginning */
+
+    video.currentTime = 0;
+
+    video.muted = true;
+
+
+    /* Play video */
+
+    video.play().catch(function(error) {
+
+        console.log("Autoplay blocked:", error);
+
+    });
+
+}
+
+
+/* =====================================================
+   AUTOMATICALLY GO TO NEXT VIDEO
+===================================================== */
+
+heroVideos.forEach(function(video, index) {
+
+    video.addEventListener("ended", function() {
+
+        /*
+         * Only change if this is
+         * the currently displayed video
+         */
+
+        if (index === currentVideo) {
+
+            showVideo(currentVideo + 1);
+
+        }
+
+    });
+
+});
+
+
+/* =====================================================
+   NEXT BUTTON
+===================================================== */
+
+nextVideo.addEventListener("click", function() {
+
+    showVideo(currentVideo + 1);
+
+});
+
+
+/* =====================================================
+   PREVIOUS BUTTON
+===================================================== */
+
+prevVideo.addEventListener("click", function() {
+
+    showVideo(currentVideo - 1);
+
+});
+
+
+/* =====================================================
+   START FIRST VIDEO
+===================================================== */
+
+showVideo(0);
