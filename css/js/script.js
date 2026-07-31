@@ -112,3 +112,19 @@ if (f) {
 
   });
 }
+
+<script>
+  const videos = document.querySelectorAll('.hero-video');
+  let current = 0;
+
+  setInterval(() => {
+    videos[current].classList.remove('active');
+    videos[current].pause();
+
+    current = (current + 1) % videos.length;
+
+    videos[current].classList.add('active');
+    videos[current].currentTime = 0;
+    videos[current].play();
+  }, 8000); // Change video every 8 seconds
+</script>
