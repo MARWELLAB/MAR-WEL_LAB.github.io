@@ -142,14 +142,8 @@ footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 2.5rem 
 
 
 /* =========================================================
-   MAR-WEL LAB - 4 VIDEO HERO BACKGROUND
-   Existing hero design is preserved
+   HERO VIDEO
 ========================================================= */
-
-
-/* ---------------------------------------------------------
-   HERO
---------------------------------------------------------- */
 
 .hero {
     position: relative;
@@ -157,12 +151,11 @@ footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 2.5rem 
 }
 
 
-/* ---------------------------------------------------------
-   VIDEO BACKGROUND
---------------------------------------------------------- */
+/* Video container */
 
 .hero-video-container {
     position: absolute;
+
     top: 0;
     left: 0;
 
@@ -172,12 +165,10 @@ footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 2.5rem 
     overflow: hidden;
 
     z-index: 0;
-
-    pointer-events: none;
 }
 
 
-/* Individual videos */
+/* Videos */
 
 .hero-video {
     position: absolute;
@@ -189,29 +180,23 @@ footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 2.5rem 
     height: 100%;
 
     object-fit: cover;
-    object-position: center center;
 
     opacity: 0;
-    visibility: hidden;
 
-    transition: opacity 0.8s ease-in-out;
+    transition: opacity 0.8s ease;
 
     pointer-events: none;
 }
 
 
-/* Currently playing video */
+/* Active video */
 
 .hero-video.active {
     opacity: 1;
-    visibility: visible;
 }
 
 
-/* ---------------------------------------------------------
-   DARK OVERLAY
-   Keeps your existing overlay above the video
---------------------------------------------------------- */
+/* Overlay */
 
 .hero-overlay {
     position: absolute;
@@ -226,10 +211,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 2.5rem 
 }
 
 
-/* ---------------------------------------------------------
-   HERO CONTENT
-   Logo + title + subtitle + badges stay above video
---------------------------------------------------------- */
+/* Content */
 
 .hero-content {
     position: relative;
@@ -238,9 +220,9 @@ footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 2.5rem 
 }
 
 
-/* ---------------------------------------------------------
-   VIDEO PREVIOUS / NEXT BUTTONS
---------------------------------------------------------- */
+/* =========================================================
+   VIDEO BUTTONS
+========================================================= */
 
 .video-controls {
     position: absolute;
@@ -250,14 +232,11 @@ footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 2.5rem 
 
     transform: translateX(-50%);
 
-    z-index: 10;
+    z-index: 50;
 
     display: flex;
 
     gap: 12px;
-
-    align-items: center;
-    justify-content: center;
 }
 
 
@@ -265,90 +244,44 @@ footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 2.5rem 
     width: 42px;
     height: 42px;
 
-    padding: 0;
-
-    border: 1px solid rgba(255, 255, 255, 0.75);
+    border: 1px solid white;
 
     border-radius: 50%;
 
-    background: rgba(0, 0, 0, 0.35);
+    background: rgba(0, 0, 0, 0.5);
 
-    color: #ffffff;
+    color: white;
 
     font-size: 18px;
-    font-weight: 600;
-
-    line-height: 1;
 
     cursor: pointer;
 
     display: flex;
 
     align-items: center;
-    justify-content: center;
 
-    transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease;
+    justify-content: center;
 }
 
 
 .video-controls button:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background: white;
 
     color: #173653;
-
-    transform: scale(1.08);
 }
 
 
-.video-controls button:active {
-    transform: scale(0.95);
-}
-
-
-/* ---------------------------------------------------------
-   MOBILE
---------------------------------------------------------- */
+/* Mobile */
 
 @media (max-width: 768px) {
 
-    .hero-video {
-        object-fit: cover;
-
-        object-position: center center;
-    }
-
     .video-controls {
         bottom: 15px;
-
-        gap: 10px;
     }
 
     .video-controls button {
         width: 38px;
         height: 38px;
-
-        font-size: 16px;
-    }
-}
-
-
-/* ---------------------------------------------------------
-   SMALL MOBILE
---------------------------------------------------------- */
-
-@media (max-width: 480px) {
-
-    .video-controls {
-        bottom: 12px;
     }
 
-    .video-controls button {
-        width: 36px;
-        height: 36px;
-
-        font-size: 15px;
-    }
 }
