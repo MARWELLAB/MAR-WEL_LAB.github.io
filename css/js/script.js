@@ -121,118 +121,90 @@ if (f) {
 document.addEventListener("DOMContentLoaded", function () {
 
     const videos = document.querySelectorAll(".hero-video");
-
     const nextButton = document.getElementById("nextVideo");
-
     const prevButton = document.getElementById("prevVideo");
 
     let currentVideo = 0;
 
 
-    console.log("Number of videos:", videos.length);
+    // Check whether everything is found
+    console.log("Videos found:", videos.length);
+    console.log("Next button:", nextButton);
+    console.log("Previous button:", prevButton);
 
 
-    /* ==========================================
-       PLAY VIDEO
-    ========================================== */
+    // Function to show video
+    function showVideo(index) {
 
-    function playVideo(index) {
-
+        // Go to first video
         if (index >= videos.length) {
             index = 0;
         }
 
+        // Go to last video
         if (index < 0) {
             index = videos.length - 1;
         }
 
-
-        /* Stop all videos */
-
+        // Stop all videos
         videos.forEach(function (video) {
 
             video.pause();
-
-            video.currentTime = 0;
-
             video.classList.remove("active");
 
         });
 
 
-        /* Select video */
-
+        // Select new video
         currentVideo = index;
 
-        const video = videos[currentVideo];
+        const selectedVideo = videos[currentVideo];
+
+        selectedVideo.classList.add("active");
+
+        selectedVideo.currentTime = 0;
+
+        selectedVideo.muted = true;
 
 
-        video.classList.add("active");
+        // Play video
+        selectedVideo.play().catch(function (error) {
 
-        video.muted = true;
+            console.log("Video play error:", error);
 
-
-        /* Play selected video */
-
-        video.play()
-            .then(function () {
-
-                console.log(
-                    "Playing video:",
-                    currentVideo + 1
-                );
-
-            })
-            .catch(function (error) {
-
-                console.log(
-                    "Video play error:",
-                    error
-                );
-
-            });
+        });
 
     }
 
 
-    /* ==========================================
-       NEXT
-    ========================================== */
-
+    // NEXT BUTTON
     nextButton.addEventListener("click", function () {
 
-        console.log("Next clicked");
+        console.log("NEXT BUTTON CLICKED");
 
-        playVideo(currentVideo + 1);
+        showVideo(currentVideo + 1);
 
     });
 
 
-    /* ==========================================
-       PREVIOUS
-    ========================================== */
-
+    // PREVIOUS BUTTON
     prevButton.addEventListener("click", function () {
 
-        console.log("Previous clicked");
+        console.log("PREVIOUS BUTTON CLICKED");
 
-        playVideo(currentVideo - 1);
+        showVideo(currentVideo - 1);
 
     });
 
 
-    /* ==========================================
-       WHEN VIDEO ENDS
-       GO TO NEXT VIDEO
-    ========================================== */
-
+    // Automatically go to next video
     videos.forEach(function (video, index) {
 
         video.addEventListener("ended", function () {
 
             if (index === currentVideo) {
 
-                playVideo(currentVideo + 1);
+                showVideo(currentVideo + 1);
 
             }
 
@@ -241,10 +213,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* ==========================================
-       START FIRST VIDEO
-    ========================================== */
-
-    playVideo(0);
+    // Start first video
+    showVideo(0);
 
 });
