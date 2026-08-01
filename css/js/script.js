@@ -121,122 +121,59 @@ if (f) {
 document.addEventListener("DOMContentLoaded", function () {
 
     const videos = document.querySelectorAll(".hero-video");
-    const nextButton = document.getElementById("nextVideo");
     const prevButton = document.getElementById("prevVideo");
+    const nextButton = document.getElementById("nextVideo");
 
     let currentVideo = 0;
 
-
-    // Check whether everything is found
-    console.log("Videos found:", videos.length);
-    console.log("Next button:", nextButton);
-    console.log("Previous button:", prevButton);
-
-
-    // Function to show video
     function showVideo(index) {
 
-        // Go to first video
-        if (index >= videos.length) {
-            index = 0;
-        }
-
-        // Go to last video
-        if (index < 0) {
-            index = videos.length - 1;
-        }
-
-        // Stop all videos
+        // Stop and hide all videos
         videos.forEach(function (video) {
-
             video.pause();
             video.classList.remove("active");
-
         });
 
+        // Go to previous video
+        if (index < 0) {
+            currentVideo = videos.length - 1;
+        }
 
-        // Select new video
-        currentVideo = index;
+        // Go to first video after last
+        else if (index >= videos.length) {
+            currentVideo = 0;
+        }
 
-        const selectedVideo = videos[currentVideo];
+        else {
+            currentVideo = index;
+        }
 
-        selectedVideo.classList.add("active");
+        // Select video
+        const video = videos[currentVideo];
 
-        selectedVideo.currentTime = 0;
+        // Show video
+        video.classList.add("active");
 
-        selectedVideo.muted = true;
+        // Start from beginning
+        video.currentTime = 0;
 
-
-        // Play video
-        selectedVideo.play().catch(function (error) {
-
+        // Play
+        video.play().catch(function (error) {
             console.log("Video play error:", error);
-
         });
-
     }
 
-
-    // NEXT BUTTON
-    ```javascript
-const videos = document.querySelectorAll(".hero-video");
-const prevButton = document.getElementById("prevVideo");
-const nextButton = document.getElementById("nextVideo");
-
-let currentVideo = 0;
-
-function showVideo(index) {
-
-    // Remove active class from all videos
-    videos.forEach(video => {
-        video.classList.remove("active");
-        video.pause();
-        video.currentTime = 0;
+    // Next button
+    nextButton.addEventListener("click", function () {
+        showVideo(currentVideo + 1);
     });
 
-    // Update current video
-    currentVideo = (index + videos.length) % videos.length;
-
-    // Show selected video
-    videos[currentVideo].classList.add("active");
-
-    // Play selected video
-    videos[currentVideo].play();
-}
-
-// Next button
-nextButton.addEventListener("click", () => {
-    showVideo(currentVideo + 1);
-});
-
-// Previous button
-prevButton.addEventListener("click", () => {
-    showVideo(currentVideo - 1);
-});
-
-// Start first video
-showVideo(0);
-```
-
-
-
-    // Automatically go to next video
-    videos.forEach(function (video, index) {
-
-        video.addEventListener("ended", function () {
-
-            if (index === currentVideo) {
-
-                showVideo(currentVideo + 1);
-
-            }
-
-        });
-
+    // Previous button
+    prevButton.addEventListener("click", function () {
+        showVideo(currentVideo - 1);
     });
 
-
-    // Start first video
+    // Start with Breakwater
     showVideo(0);
 
 });
