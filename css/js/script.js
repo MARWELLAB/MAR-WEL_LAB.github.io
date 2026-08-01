@@ -178,23 +178,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // NEXT BUTTON
-    nextButton.addEventListener("click", function () {
+    ```javascript
+const videos = document.querySelectorAll(".hero-video");
+const prevButton = document.getElementById("prevVideo");
+const nextButton = document.getElementById("nextVideo");
 
-        console.log("NEXT BUTTON CLICKED");
+let currentVideo = 0;
 
-        showVideo(currentVideo + 1);
+function showVideo(index) {
 
+    // Remove active class from all videos
+    videos.forEach(video => {
+        video.classList.remove("active");
+        video.pause();
+        video.currentTime = 0;
     });
 
+    // Update current video
+    currentVideo = (index + videos.length) % videos.length;
 
-    // PREVIOUS BUTTON
-    prevButton.addEventListener("click", function () {
+    // Show selected video
+    videos[currentVideo].classList.add("active");
 
-        console.log("PREVIOUS BUTTON CLICKED");
+    // Play selected video
+    videos[currentVideo].play();
+}
 
-        showVideo(currentVideo - 1);
+// Next button
+nextButton.addEventListener("click", () => {
+    showVideo(currentVideo + 1);
+});
 
-    });
+// Previous button
+prevButton.addEventListener("click", () => {
+    showVideo(currentVideo - 1);
+});
+
+// Start first video
+showVideo(0);
+```
+
 
 
     // Automatically go to next video
