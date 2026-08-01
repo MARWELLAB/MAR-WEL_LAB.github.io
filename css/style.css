@@ -147,187 +147,76 @@ footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 2.5rem 
 
 .hero {
     position: relative;
+    width: 100%;
+    height: 100vh;
     overflow: hidden;
 }
-
-
-/* VIDEO CONTAINER */
 
 .hero-video-container {
     position: absolute;
-
-    top: 0;
-    left: 0;
-
+    inset: 0;
     width: 100%;
     height: 100%;
-
-    overflow: hidden;
-
-    z-index: 0;
 }
-
-
-/* ALL VIDEOS */
 
 .hero-video {
     position: absolute;
-
-    top: 0;
-    left: 0;
-
+    inset: 0;
     width: 100%;
     height: 100%;
-
     object-fit: cover;
 
     opacity: 0;
-
     visibility: hidden;
-
-    transition: opacity 0.8s ease-in-out;
-
-    pointer-events: none;
+    transition: opacity 0.5s ease;
 }
-
-
-/* ACTIVE VIDEO */
 
 .hero-video.active {
     opacity: 1;
-
     visibility: visible;
 }
 
-
-/* OVERLAY */
-
+/* Dark overlay */
 .hero-overlay {
     position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    z-index: 1;
-}
-
-
-/* CONTENT */
-
-.hero-content {
-    position: relative;
-
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
     z-index: 2;
 }
 
-
-/* =========================================================
-   NEXT / PREVIOUS BUTTONS
-========================================================= */
-
-```css
-/* Video Navigation Buttons */
+/* Video buttons */
 .video-controls {
     position: absolute;
     top: 50%;
     left: 0;
     width: 100%;
+    padding: 0 25px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     transform: translateY(-50%);
-    padding: 0 25px;
     z-index: 10;
-    pointer-events: none;
 }
 
 .video-controls button {
-    pointer-events: auto;
     width: 50px;
     height: 50px;
+
     border: none;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.45);
+
+    background: rgba(0, 0, 0, 0.5);
     color: white;
-    font-size: 28px;
+
+    font-size: 25px;
     cursor: pointer;
-    transition: all 0.3s ease;
+
+    transition: 0.3s;
 }
 
 .video-controls button:hover {
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.8);
     transform: scale(1.1);
-}
-```
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 768px) {
-
-    .hero-video {
-        object-position: center center;
-    }
-
-
-    .video-controls {
-        bottom: 15px;
-
-        gap: 10px;
-    }
-
-
-    .video-controls button {
-        width: 38px;
-        height: 38px;
-
-        font-size: 16px;
-    }
-
-}
-
-.video-controls {
-    position: absolute;
-
-    left: 50%;
-    bottom: 25px;
-
-    transform: translateX(-50%);
-
-    z-index: 1000;
-
-    display: flex;
-    gap: 15px;
-}
-
-
-.video-controls button {
-    width: 45px;
-    height: 45px;
-
-    border: 2px solid white;
-    border-radius: 50%;
-
-    background: rgba(0, 0, 0, 0.6);
-
-    color: white;
-
-    font-size: 20px;
-
-    cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    pointer-events: auto;
-}
-
-
-.video-controls button:hover {
-    background: white;
-    color: #173653;
 }
