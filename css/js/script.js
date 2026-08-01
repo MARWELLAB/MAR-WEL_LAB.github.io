@@ -118,47 +118,29 @@ if (f) {
    4 VIDEO HERO SLIDER
    AUTO PLAY + MANUAL NEXT/PREVIOUS
 ========================================================= */
-
 document.addEventListener("DOMContentLoaded", function () {
 
     const videos = document.querySelectorAll(".hero-video");
 
     const nextButton = document.getElementById("nextVideo");
+
     const prevButton = document.getElementById("prevVideo");
 
     let currentVideo = 0;
 
 
-    /* Check whether videos exist */
-
-    if (videos.length === 0) {
-        console.log("No hero videos found.");
-        return;
-    }
+    console.log("Number of videos:", videos.length);
 
 
-    /* Check buttons */
+    /* ==========================================
+       PLAY VIDEO
+    ========================================== */
 
-    if (!nextButton || !prevButton) {
-        console.log("Video navigation buttons not found.");
-        return;
-    }
-
-
-    /* =====================================================
-       SHOW VIDEO
-    ===================================================== */
-
-    function showVideo(index) {
-
-        /* Loop forward */
+    function playVideo(index) {
 
         if (index >= videos.length) {
             index = 0;
         }
-
-
-        /* Loop backward */
 
         if (index < 0) {
             index = videos.length - 1;
@@ -171,77 +153,78 @@ document.addEventListener("DOMContentLoaded", function () {
 
             video.pause();
 
+            video.currentTime = 0;
+
             video.classList.remove("active");
 
         });
 
 
-        /* Set current video */
+        /* Select video */
 
         currentVideo = index;
 
-        const selectedVideo = videos[currentVideo];
+        const video = videos[currentVideo];
 
 
-        /* Activate selected video */
+        video.classList.add("active");
 
-        selectedVideo.classList.add("active");
-
-
-        /* Start from beginning */
-
-        selectedVideo.currentTime = 0;
-
-        selectedVideo.muted = true;
+        video.muted = true;
 
 
-        /* Play */
+        /* Play selected video */
 
-        const playPromise = selectedVideo.play();
-
-
-        if (playPromise !== undefined) {
-
-            playPromise.catch(function (error) {
+        video.play()
+            .then(function () {
 
                 console.log(
-                    "Video autoplay was prevented:",
+                    "Playing video:",
+                    currentVideo + 1
+                );
+
+            })
+            .catch(function (error) {
+
+                console.log(
+                    "Video play error:",
                     error
                 );
 
             });
 
-        }
-
     }
 
 
-    /* =====================================================
-       NEXT BUTTON
-    ===================================================== */
+    /* ==========================================
+       NEXT
+    ========================================== */
 
     nextButton.addEventListener("click", function () {
 
-        showVideo(currentVideo + 1);
+        console.log("Next clicked");
+
+        playVideo(currentVideo + 1);
 
     });
 
 
-    /* =====================================================
-       PREVIOUS BUTTON
-    ===================================================== */
+    /* ==========================================
+       PREVIOUS
+    ========================================== */
 
     prevButton.addEventListener("click", function () {
 
-        showVideo(currentVideo - 1);
+        console.log("Previous clicked");
+
+        playVideo(currentVideo - 1);
 
     });
 
 
-    /* =====================================================
-       AUTOMATICALLY MOVE TO NEXT VIDEO
-       WHEN CURRENT VIDEO FINISHES
-    ===================================================== */
+    /* ==========================================
+       WHEN VIDEO ENDS
+       GO TO NEXT VIDEO
+    ========================================== */
 
     videos.forEach(function (video, index) {
 
@@ -249,7 +232,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (index === currentVideo) {
 
-                showVideo(currentVideo + 1);
+                playVideo(currentVideo + 1);
 
             }
 
@@ -258,10 +241,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* =====================================================
+    /* ==========================================
        START FIRST VIDEO
-    ===================================================== */
+    ========================================== */
 
-    showVideo(0);
+    playVideo(0);
 
 });
