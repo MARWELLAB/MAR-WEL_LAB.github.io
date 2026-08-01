@@ -305,3 +305,46 @@ footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 2.5rem 
     }
 
 }
+
+.video-controls {
+    position: absolute;
+
+    left: 50%;
+    bottom: 25px;
+
+    transform: translateX(-50%);
+
+    z-index: 1000;
+
+    display: flex;
+    gap: 15px;
+}
+
+
+.video-controls button {
+    width: 45px;
+    height: 45px;
+
+    border: 2px solid white;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.6);
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    pointer-events: auto;
+}
+
+
+.video-controls button:hover {
+    background: white;
+    color: #173653;
+}
