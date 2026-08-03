@@ -121,59 +121,57 @@ if (f) {
 document.addEventListener("DOMContentLoaded", function () {
 
     const videos = document.querySelectorAll(".hero-video");
-    const prevButton = document.getElementById("prevVideo");
     const nextButton = document.getElementById("nextVideo");
+    const prevButton = document.getElementById("prevVideo");
 
     let currentVideo = 0;
 
+    console.log("Total videos found:", videos.length);
+
     function showVideo(index) {
 
-        // Stop and hide all videos
+        // Stop all videos
         videos.forEach(function (video) {
             video.pause();
             video.classList.remove("active");
         });
 
-        // Go to previous video
-        if (index < 0) {
-            currentVideo = videos.length - 1;
-        }
-
-        // Go to first video after last
-        else if (index >= videos.length) {
-            currentVideo = 0;
-        }
-
-        else {
-            currentVideo = index;
-        }
+        // Calculate next/previous video
+        currentVideo = (index + videos.length) % videos.length;
 
         // Select video
-        const video = videos[currentVideo];
+        const selectedVideo = videos[currentVideo];
 
-        // Show video
-        video.classList.add("active");
+        // Activate video
+        selectedVideo.classList.add("active");
 
-        // Start from beginning
-        video.currentTime = 0;
+        // Restart video
+        selectedVideo.currentTime = 0;
 
-        // Play
-        video.play().catch(function (error) {
-            console.log("Video play error:", error);
-        });
+        // Play video
+        selectedVideo.play()
+            .then(function () {
+                console.log("Playing video:", currentVideo + 1);
+            })
+            .catch(function (error) {
+                console.error("Video cannot play:", error);
+            });
     }
 
-    // Next button
+
+    // NEXT button
     nextButton.addEventListener("click", function () {
         showVideo(currentVideo + 1);
     });
 
-    // Previous button
+
+    // PREVIOUS button
     prevButton.addEventListener("click", function () {
         showVideo(currentVideo - 1);
     });
 
-    // Start with Breakwater
+
+    // Start first video
     showVideo(0);
 
 });
