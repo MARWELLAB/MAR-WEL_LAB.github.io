@@ -103,19 +103,18 @@
 
   <!-- Firebase SDKs -->
   <script type="module">
-    // Import the functions you need from the SDKs
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-    // Your web app's Firebase configuration
-    // Replace this with your actual config from Firebase Console
+    // Your Firebase configuration
     const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_PROJECT_ID.appspot.com",
-      messagingSenderId: "YOUR_SENDER_ID",
-      appId: "YOUR_APP_ID"
+      apiKey: "AIzaSyBrWfsmDxeDgmsmg3wxqwAUjwtDLnxt4_A",
+      authDomain: "mar-wel-lab-86a7c.firebaseapp.com",
+      projectId: "mar-wel-lab-86a7c",
+      storageBucket: "mar-wel-lab-86a7c.firebasestorage.app",
+      messagingSenderId: "430163655582",
+      appId: "1:430163655582:web:950b7417d675b27adc748f",
+      measurementId: "G-JEBRTKG9BT"
     };
 
     // Initialize Firebase
@@ -132,7 +131,7 @@
 
       try {
         await signInWithEmailAndPassword(auth, email, password);
-        // Login successful → go to dashboard
+        // Login successful
         window.location.href = "admin-dashboard.html";
       } catch (error) {
         errorMsg.style.display = "block";
