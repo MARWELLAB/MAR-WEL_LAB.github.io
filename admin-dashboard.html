@@ -149,7 +149,6 @@
     .edit-btn { background: #3b82f6; color: white; }
     .delete-btn { background: #ef4444; color: white; }
 
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -267,7 +266,7 @@
     <div id="vendors" class="content-section">
       <div class="section-header">
         <h2>Vendor Details</h2>
-        <button class="btn-primary" onclick="openVendorModal()">+ Add Vendor</button>
+        <button class="btn-primary" onclick="openModal('vendor')">+ Add Vendor</button>
       </div>
       <table>
         <thead>
@@ -280,20 +279,32 @@
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody id="vendorTableBody">
-          <!-- Data will load here -->
-        </tbody>
+        <tbody id="vendorTableBody"></tbody>
       </table>
     </div>
 
-    <!-- Other sections (placeholders) -->
+    <!-- Supplier Details -->
     <div id="suppliers" class="content-section">
       <div class="section-header">
         <h2>Supplier Details</h2>
-        <button class="btn-primary">+ Add Supplier</button>
+        <button class="btn-primary" onclick="openModal('supplier')">+ Add Supplier</button>
       </div>
-      <p>Coming soon...</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Materials</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="supplierTableBody"></tbody>
+      </table>
     </div>
+
+    <!-- Other placeholders -->
     <div id="toolbox" class="content-section">
       <div class="section-header">
         <h2>Lab Toolbox</h2>
@@ -317,46 +328,41 @@
     </div>
   </div>
 
-  <!-- Vendor Modal -->
-  <div class="modal" id="vendorModal">
+  <!-- Modal (shared for Vendor & Supplier) -->
+  <div class="modal" id="dataModal">
     <div class="modal-content">
-      <h3 id="modalTitle">Add Vendor</h3>
-      <form id="vendorForm">
-        <input type="hidden" id="vendorId">
+      <h3 id="modalTitle">Add Item</h3>
+      <form id="dataForm">
+        <input type="hidden" id="itemId">
+        <input type="hidden" id="itemType">
         <div class="form-group">
-          <label>Vendor Name</label>
-          <input type="text" id="vendorName" required>
-        </div>
-        <div class="form-group">
-          <label>Vendor ID</label>
-          <input type="text" id="vendorid" required>
+          <label>Name</label>
+          <input type="text" id="itemName" required>
         </div>
         <div class="form-group">
           <label>Contact Number</label>
-          <input type="text" id="vendorContact" required>
+          <input type="text" id="itemContact" required>
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input type="email" id="vendorEmail">
+          <input type="email" id="itemEmail">
         </div>
         <div class="form-group">
           <label>Address</label>
-          <input type="text" id="vendorAddress">
+          <input type="text" id="itemAddress">
         </div>
         <div class="form-group">
-          <label>Products / Services</label>
-          <textarea id="vendorProducts" rows="3"></textarea>
+          <label id="extraLabel">Products / Materials</label>
+          <textarea id="itemExtra" rows="3"></textarea>
         </div>
-        
         <div class="modal-actions">
-          <button type="button" class="btn-cancel" onclick="closeVendorModal()">Cancel</button>
+          <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
           <button type="submit" class="btn-primary">Save</button>
         </div>
       </form>
     </div>
   </div>
 
-  <!-- Firebase + Logic -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -376,18 +382,15 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
 
-    // Protect page
     onAuthStateChanged(auth, (user) => {
       if (!user) window.location.href = "admin-login.html";
     });
 
-    // Logout
     document.getElementById("logoutBtn").addEventListener("click", async () => {
       await signOut(auth);
       window.location.href = "admin-login.html";
     });
 
-    // Section switching
     window.showSection = function(sectionId) {
       document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
       document.getElementById(sectionId).classList.add('active');
@@ -405,94 +408,107 @@
       };
       document.getElementById("pageTitle").textContent = titles[sectionId];
 
-      if (sectionId === 'vendors') loadVendors();
+      if (sectionId === 'vendors') loadData('vendors', 'vendorTableBody');
+      if (sectionId === 'suppliers') loadData('suppliers', 'supplierTableBody');
     };
 
-    // ===== VENDOR FUNCTIONS =====
-    async function loadVendors() {
-      const tbody = document.getElementById("vendorTableBody");
+    // ===== COMMON FUNCTIONS =====
+    async function loadData(collectionName, tableBodyId) {
+      const tbody = document.getElementById(tableBodyId);
       tbody.innerHTML = "<tr><td colspan='6'>Loading...</td></tr>";
 
-      const querySnapshot = await getDocs(collection(db, "vendors"));
+      const snapshot = await getDocs(collection(db, collectionName));
       tbody.innerHTML = "";
 
-      if (querySnapshot.empty) {
-        tbody.innerHTML = "<tr><td colspan='6'>No vendors found. Add one!</td></tr>";
+      if (snapshot.empty) {
+        tbody.innerHTML = `<tr><td colspan="6">No data found. Add one!</td></tr>`;
         return;
       }
 
-      querySnapshot.forEach((docSnap) => {
-        const data = docSnap.data();
-        const row = `
+      snapshot.forEach((docSnap) => {
+        const d = docSnap.data();
+        const extra = d.products || d.materials || '';
+        tbody.innerHTML += `
           <tr>
-            <td>${data.name || ''}</td>
-            <td>${data.contact || ''}</td>
-            <td>${data.email || ''}</td>
-            <td>${data.address || ''}</td>
-            <td>${data.products || ''}</td>
+            <td>${d.name || ''}</td>
+            <td>${d.contact || ''}</td>
+            <td>${d.email || ''}</td>
+            <td>${d.address || ''}</td>
+            <td>${extra}</td>
             <td>
-              <button class="action-btn edit-btn" onclick="editVendor('${docSnap.id}', '${data.name}', '${data.contact}', '${data.email || ''}', '${data.address || ''}', '${data.products || ''}')">Edit</button>
-              <button class="action-btn delete-btn" onclick="deleteVendor('${docSnap.id}')">Delete</button>
+              <button class="action-btn edit-btn" onclick="editItem('${collectionName}', '${docSnap.id}', '${d.name}', '${d.contact}', '${d.email || ''}', '${d.address || ''}', '${extra}')">Edit</button>
+              <button class="action-btn delete-btn" onclick="deleteItem('${collectionName}', '${docSnap.id}')">Delete</button>
             </td>
           </tr>
         `;
-        tbody.innerHTML += row;
       });
     }
 
-    window.openVendorModal = function() {
-      document.getElementById("modalTitle").textContent = "Add Vendor";
-      document.getElementById("vendorForm").reset();
-      document.getElementById("vendorId").value = "";
-      document.getElementById("vendorModal").style.display = "flex";
+    window.openModal = function(type) {
+      document.getElementById("itemType").value = type;
+      document.getElementById("itemId").value = "";
+      document.getElementById("dataForm").reset();
+      document.getElementById("modalTitle").textContent = type === 'vendor' ? "Add Vendor" : "Add Supplier";
+      document.getElementById("extraLabel").textContent = type === 'vendor' ? "Products / Services" : "Materials Supplied";
+      document.getElementById("dataModal").style.display = "flex";
     };
 
-    window.closeVendorModal = function() {
-      document.getElementById("vendorModal").style.display = "none";
+    window.closeModal = function() {
+      document.getElementById("dataModal").style.display = "none";
     };
 
-    window.editVendor = function(id, name, contact, email, address, products) {
-      document.getElementById("modalTitle").textContent = "Edit Vendor";
-      document.getElementById("vendorId").value = id;
-      document.getElementById("vendorName").value = name;
-      document.getElementById("vendorContact").value = contact;
-      document.getElementById("vendorEmail").value = email;
-      document.getElementById("vendorAddress").value = address;
-      document.getElementById("vendorProducts").value = products;
-      document.getElementById("vendorModal").style.display = "flex";
+    window.editItem = function(type, id, name, contact, email, address, extra) {
+      document.getElementById("itemType").value = type;
+      document.getElementById("itemId").value = id;
+      document.getElementById("itemName").value = name;
+      document.getElementById("itemContact").value = contact;
+      document.getElementById("itemEmail").value = email;
+      document.getElementById("itemAddress").value = address;
+      document.getElementById("itemExtra").value = extra;
+      document.getElementById("modalTitle").textContent = type === 'vendor' ? "Edit Vendor" : "Edit Supplier";
+      document.getElementById("extraLabel").textContent = type === 'vendor' ? "Products / Services" : "Materials Supplied";
+      document.getElementById("dataModal").style.display = "flex";
     };
 
-    window.deleteVendor = async function(id) {
-      if (confirm("Are you sure you want to delete this vendor?")) {
-        await deleteDoc(doc(db, "vendors", id));
-        loadVendors();
+    window.deleteItem = async function(collectionName, id) {
+      if (confirm("Are you sure you want to delete this item?")) {
+        await deleteDoc(doc(db, collectionName, id));
+        if (collectionName === 'vendors') loadData('vendors', 'vendorTableBody');
+        if (collectionName === 'suppliers') loadData('suppliers', 'supplierTableBody');
       }
     };
 
-    document.getElementById("vendorForm").addEventListener("submit", async (e) => {
+    document.getElementById("dataForm").addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const id = document.getElementById("vendorId").value;
-      const vendorData = {
-        name: document.getElementById("vendorName").value,
-        contact: document.getElementById("vendorContact").value,
-        email: document.getElementById("vendorEmail").value,
-        address: document.getElementById("vendorAddress").value,
-        products: document.getElementById("vendorProducts").value,
+      const type = document.getElementById("itemType").value;
+      const id = document.getElementById("itemId").value;
+      const collectionName = type === 'vendor' ? 'vendors' : 'suppliers';
+
+      const data = {
+        name: document.getElementById("itemName").value,
+        contact: document.getElementById("itemContact").value,
+        email: document.getElementById("itemEmail").value,
+        address: document.getElementById("itemAddress").value,
         updatedAt: new Date().toISOString()
       };
 
-      if (id) {
-        // Update
-        await updateDoc(doc(db, "vendors", id), vendorData);
+      if (type === 'vendor') {
+        data.products = document.getElementById("itemExtra").value;
       } else {
-        // Add
-        vendorData.createdAt = new Date().toISOString();
-        await addDoc(collection(db, "vendors"), vendorData);
+        data.materials = document.getElementById("itemExtra").value;
       }
 
-      closeVendorModal();
-      loadVendors();
+      if (id) {
+        await updateDoc(doc(db, collectionName, id), data);
+      } else {
+        data.createdAt = new Date().toISOString();
+        await addDoc(collection(db, collectionName), data);
+      }
+
+      closeModal();
+      if (collectionName === 'vendors') loadData('vendors', 'vendorTableBody');
+      if (collectionName === 'suppliers') loadData('suppliers', 'supplierTableBody');
     });
   </script>
 </body>
