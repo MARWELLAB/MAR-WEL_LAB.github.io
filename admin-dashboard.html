@@ -1,78 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | MAR-WEL LAB</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="images/marwel_logo.png" type="image/png" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f7fb;
+      display: flex;
+      min-height: 100vh;
+    }
 
-    <meta charset="UTF-8">
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      background: #1a2e4a;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      height: 100%;
+    }
+    .sidebar-header {
+      padding: 1.5rem 1rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .sidebar-header img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+    .sidebar-header h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.2rem;
+    }
+    .sidebar-header p {
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+    .sidebar-menu {
+      flex: 1;
+      padding: 1.2rem 0;
+    }
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 0.9rem 1.5rem;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    .menu-item:hover,
+    .menu-item.active {
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+    .menu-item span {
+      margin-right: 12px;
+      font-size: 1.15rem;
+    }
+    .sidebar-footer {
+      padding: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    #logoutBtn {
+      width: 100%;
+      padding: 0.8rem;
+      background: #e07b39;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    #logoutBtn:hover {
+      background: #c96a2e;
+    }
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    /* Main Content */
+    .main-content {
+      margin-left: 260px;
+      flex: 1;
+      padding: 2rem;
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .topbar h1 {
+      color: #1a2e4a;
+      font-size: 1.7rem;
+    }
+    .user-info {
+      color: #6b7c93;
+      font-size: 0.95rem;
+    }
 
-    <title>MAR-WEL Admin Dashboard</title>
+    /* Cards */
+    .dashboard-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .card {
+      background: white;
+      padding: 1.6rem 1.2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card .icon {
+      font-size: 2rem;
+      margin-bottom: 0.7rem;
+    }
+    .card h3 {
+      color: #1a2e4a;
+      margin-bottom: 0.3rem;
+      font-size: 1.1rem;
+    }
+    .card p {
+      color: #6b7c93;
+      font-size: 0.88rem;
+    }
 
-    <link rel="stylesheet"
-          href="css/admin.css">
+    /* Content Sections */
+    .content-section {
+      display: none;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .content-section.active {
+      display: block;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .section-header h2 {
+      color: #1a2e4a;
+    }
+    .btn-primary {
+      background: #1e5f8a;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .btn-primary:hover {
+      background: #1a2e4a;
+    }
 
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 70px;
+      }
+      .sidebar-header h2,
+      .sidebar-header p {
+        display: none;
+      }
+      .main-content {
+        margin-left: 70px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header class="admin-header">
-
-    <div>
-
-        <strong>MAR-WEL Admin</strong>
-
-        <span id="adminEmail"></span>
-
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <img src="images/marwel_logo.png" alt="MAR-WEL Logo">
+      <h2>MAR-WEL</h2>
+      <p>Admin Panel</p>
     </div>
 
-    <button id="logoutBtn">
-        Logout
-    </button>
+    <div class="sidebar-menu">
+      <div class="menu-item active" onclick="showSection('dashboard')">
+        <span>📊</span> Dashboard
+      </div>
+      <div class="menu-item" onclick="showSection('vendors')">
+        <span>🏢</span> Vendor Details
+      </div>
+      <div class="menu-item" onclick="showSection('suppliers')">
+        <span>🚚</span> Supplier Details
+      </div>
+      <div class="menu-item" onclick="showSection('toolbox')">
+        <span>🧰</span> Lab Toolbox
+      </div>
+      <div class="menu-item" onclick="showSection('systems')">
+        <span>🖥️</span> System Details
+      </div>
+      <div class="menu-item" onclick="showSection('stationary')">
+        <span>📎</span> Stationary Items
+      </div>
+    </div>
 
-</header>
+    <div class="sidebar-footer">
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </div>
 
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-  import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="topbar">
+      <h1 id="pageTitle">Dashboard</h1>
+      <div class="user-info">Welcome, Admin</div>
+    </div>
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyBrWfsmDxeDgmsmg3wxqwAUjwtDLnxt4_A",
-    authDomain: "mar-wel-lab-86a7c.firebaseapp.com",
-    projectId: "mar-wel-lab-86a7c",
-    storageBucket: "mar-wel-lab-86a7c.firebasestorage.app",
-    messagingSenderId: "430163655582",
-    appId: "1:430163655582:web:950b7417d675b27adc748f",
-    measurementId: "G-JEBRTKG9BT"
-  };
+    <!-- Dashboard Section -->
+    <div id="dashboard" class="content-section active">
+      <div class="dashboard-cards">
+        <div class="card" onclick="showSection('vendors')">
+          <div class="icon">🏢</div>
+          <h3>Vendor Details</h3>
+          <p>Manage vendors</p>
+        </div>
+        <div class="card" onclick="showSection('suppliers')">
+          <div class="icon">🚚</div>
+          <h3>Supplier Details</h3>
+          <p>Manage suppliers</p>
+        </div>
+        <div class="card" onclick="showSection('toolbox')">
+          <div class="icon">🧰</div>
+          <h3>Lab Toolbox</h3>
+          <p>Manage tools</p>
+        </div>
+        <div class="card" onclick="showSection('systems')">
+          <div class="icon">🖥️</div>
+          <h3>System Details</h3>
+          <p>Manage systems</p>
+        </div>
+        <div class="card" onclick="showSection('stationary')">
+          <div class="icon">📎</div>
+          <h3>Stationary Items</h3>
+          <p>Manage stationary</p>
+        </div>
+      </div>
+    </div>
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+    <!-- Other Sections (Placeholder) -->
+    <div id="vendors" class="content-section">
+      <div class="section-header">
+        <h2>Vendor Details</h2>
+        <button class="btn-primary">+ Add Vendor</button>
+      </div>
+      <p>Vendor management will be added here.</p>
+    </div>
 
-  // Protect the page - redirect to login if not logged in
-  onAuthStateChanged(auth, (user) => {
-    if (!user) {
-      window.location.href = "admin-login.html";
-    }
-  });
+    <div id="suppliers" class="content-section">
+      <div class="section-header">
+        <h2>Supplier Details</h2>
+        <button class="btn-primary">+ Add Supplier</button>
+      </div>
+      <p>Supplier management will be added here.</p>
+    </div>
 
-  // Logout button
-  document.getElementById("logoutBtn").addEventListener("click", async () => {
-    try {
+    <div id="toolbox" class="content-section">
+      <div class="section-header">
+        <h2>Lab Toolbox</h2>
+        <button class="btn-primary">+ Add Tool</button>
+      </div>
+      <p>Lab Toolbox management will be added here.</p>
+    </div>
+
+    <div id="systems" class="content-section">
+      <div class="section-header">
+        <h2>System Details</h2>
+        <button class="btn-primary">+ Add System</button>
+      </div>
+      <p>System Details management will be added here.</p>
+    </div>
+
+    <div id="stationary" class="content-section">
+      <div class="section-header">
+        <h2>Stationary Items</h2>
+        <button class="btn-primary">+ Add Item</button>
+      </div>
+      <p>Stationary Items management will be added here.</p>
+    </div>
+  </div>
+
+  <!-- Firebase Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBrWfsmDxeDgmsmg3wxqwAUjwtDLnxt4_A",
+      authDomain: "mar-wel-lab-86a7c.firebaseapp.com",
+      projectId: "mar-wel-lab-86a7c",
+      storageBucket: "mar-wel-lab-86a7c.firebasestorage.app",
+      messagingSenderId: "430163655582",
+      appId: "1:430163655582:web:950b7417d675b27adc748f",
+      measurementId: "G-JEBRTKG9BT"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Protect the page
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        window.location.href = "admin-login.html";
+      }
+    });
+
+    // Logout
+    document.getElementById("logoutBtn").addEventListener("click", async () => {
       await signOut(auth);
       window.location.href = "admin-login.html";
-    } catch (error) {
-      console.error("Logout failed:", error);
-      alert("Logout failed. Please try again.");
-    }
-  });
-</script>
-<script
-    type="module"
-    src="js/js/admin-dashboard.js">
-</script>
+    });
 
+    // Section switching
+    window.showSection = function(sectionId) {
+      document.querySelectorAll('.content-section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+      document.getElementById(sectionId).classList.add('active');
+
+      document.querySelectorAll('.menu-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      event.currentTarget.classList.add('active');
+
+      const titles = {
+        dashboard: "Dashboard",
+        vendors: "Vendor Details",
+        suppliers: "Supplier Details",
+        toolbox: "Lab Toolbox",
+        systems: "System Details",
+        stationary: "Stationary Items"
+      };
+      document.getElementById("pageTitle").textContent = titles[sectionId];
+    };
+  </script>
 </body>
-
 </html>
