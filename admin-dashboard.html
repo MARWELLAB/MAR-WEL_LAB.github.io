@@ -4,28 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Dashboard | MAR-WEL LAB</title>
-  
-  <!-- Favicon -->
   <link rel="icon" href="images/marwel_logo.png" type="image/png" />
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
       background: #f4f7fb;
       display: flex;
       min-height: 100vh;
     }
-
-    /* Sidebar */
     .sidebar {
       width: 260px;
       background: #1a2e4a;
@@ -47,37 +35,22 @@
       margin-bottom: 10px;
       border: 2px solid rgba(255,255,255,0.2);
     }
-    .sidebar-header h2 {
-      font-size: 1.25rem;
-      margin-bottom: 0.2rem;
-    }
-    .sidebar-header p {
-      font-size: 0.8rem;
-      opacity: 0.7;
-    }
-    .sidebar-menu {
-      flex: 1;
-      padding: 1.2rem 0;
-    }
+    .sidebar-header h2 { font-size: 1.25rem; margin-bottom: 0.2rem; }
+    .sidebar-header p { font-size: 0.8rem; opacity: 0.7; }
+    .sidebar-menu { flex: 1; padding: 1.2rem 0; }
     .menu-item {
       display: flex;
       align-items: center;
       padding: 0.9rem 1.5rem;
       color: rgba(255,255,255,0.85);
-      text-decoration: none;
-      transition: all 0.2s;
       cursor: pointer;
-      font-size: 0.95rem;
+      transition: all 0.2s;
     }
-    .menu-item:hover,
-    .menu-item.active {
+    .menu-item:hover, .menu-item.active {
       background: rgba(255,255,255,0.1);
       color: white;
     }
-    .menu-item span {
-      margin-right: 12px;
-      font-size: 1.15rem;
-    }
+    .menu-item span { margin-right: 12px; font-size: 1.15rem; }
     .sidebar-footer {
       padding: 1.5rem;
       border-top: 1px solid rgba(255,255,255,0.1);
@@ -91,13 +64,9 @@
       border-radius: 8px;
       font-weight: 600;
       cursor: pointer;
-      font-size: 0.95rem;
     }
-    #logoutBtn:hover {
-      background: #c96a2e;
-    }
+    #logoutBtn:hover { background: #c96a2e; }
 
-    /* Main Content */
     .main-content {
       margin-left: 260px;
       flex: 1;
@@ -109,21 +78,13 @@
       align-items: center;
       margin-bottom: 2rem;
     }
-    .topbar h1 {
-      color: #1a2e4a;
-      font-size: 1.7rem;
-    }
-    .user-info {
-      color: #6b7c93;
-      font-size: 0.95rem;
-    }
+    .topbar h1 { color: #1a2e4a; font-size: 1.7rem; }
+    .user-info { color: #6b7c93; }
 
-    /* Cards */
     .dashboard-cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 1.5rem;
-      margin-bottom: 2rem;
     }
     .card {
       background: white;
@@ -131,27 +92,14 @@
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       text-align: center;
-      transition: transform 0.2s;
       cursor: pointer;
+      transition: transform 0.2s;
     }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card .icon {
-      font-size: 2rem;
-      margin-bottom: 0.7rem;
-    }
-    .card h3 {
-      color: #1a2e4a;
-      margin-bottom: 0.3rem;
-      font-size: 1.1rem;
-    }
-    .card p {
-      color: #6b7c93;
-      font-size: 0.88rem;
-    }
+    .card:hover { transform: translateY(-5px); }
+    .card .icon { font-size: 2rem; margin-bottom: 0.7rem; }
+    .card h3 { color: #1a2e4a; margin-bottom: 0.3rem; }
+    .card p { color: #6b7c93; font-size: 0.88rem; }
 
-    /* Content Sections */
     .content-section {
       display: none;
       background: white;
@@ -159,18 +107,15 @@
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
-    .content-section.active {
-      display: block;
-    }
+    .content-section.active { display: block; }
+
     .section-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 1.5rem;
     }
-    .section-header h2 {
-      color: #1a2e4a;
-    }
+    .section-header h2 { color: #1a2e4a; }
     .btn-primary {
       background: #1e5f8a;
       color: white;
@@ -180,22 +125,69 @@
       cursor: pointer;
       font-weight: 500;
     }
-    .btn-primary:hover {
-      background: #1a2e4a;
-    }
+    .btn-primary:hover { background: #1a2e4a; }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .sidebar {
-        width: 70px;
-      }
-      .sidebar-header h2,
-      .sidebar-header p {
-        display: none;
-      }
-      .main-content {
-        margin-left: 70px;
-      }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    th { background: #f8fafc; color: #1a2e4a; }
+    .action-btn {
+      padding: 5px 10px;
+      margin-right: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+    .edit-btn { background: #3b82f6; color: white; }
+    .delete-btn { background: #ef4444; color: white; }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 500px;
+    }
+    .modal-content h3 { margin-bottom: 1.5rem; color: #1a2e4a; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; margin-bottom: 0.4rem; font-weight: 500; }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #ccdbe8;
+      border-radius: 6px;
+    }
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 1.5rem;
+    }
+    .btn-cancel {
+      background: #e5e7eb;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -208,7 +200,6 @@
       <h2>MAR-WEL</h2>
       <p>Admin Panel</p>
     </div>
-
     <div class="sidebar-menu">
       <div class="menu-item active" onclick="showSection('dashboard')">
         <span>📊</span> Dashboard
@@ -229,7 +220,6 @@
         <span>📎</span> Stationary Items
       </div>
     </div>
-
     <div class="sidebar-footer">
       <button id="logoutBtn">Logout</button>
     </div>
@@ -242,7 +232,7 @@
       <div class="user-info">Welcome, Admin</div>
     </div>
 
-    <!-- Dashboard Section -->
+    <!-- Dashboard -->
     <div id="dashboard" class="content-section active">
       <div class="dashboard-cards">
         <div class="card" onclick="showSection('vendors')">
@@ -273,52 +263,99 @@
       </div>
     </div>
 
-    <!-- Other Sections (Placeholder) -->
+    <!-- Vendor Details -->
     <div id="vendors" class="content-section">
       <div class="section-header">
         <h2>Vendor Details</h2>
-        <button class="btn-primary">+ Add Vendor</button>
+        <button class="btn-primary" onclick="openVendorModal()">+ Add Vendor</button>
       </div>
-      <p>Vendor management will be added here.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Products</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="vendorTableBody">
+          <!-- Data will load here -->
+        </tbody>
+      </table>
     </div>
 
+    <!-- Other sections (placeholders) -->
     <div id="suppliers" class="content-section">
       <div class="section-header">
         <h2>Supplier Details</h2>
         <button class="btn-primary">+ Add Supplier</button>
       </div>
-      <p>Supplier management will be added here.</p>
+      <p>Coming soon...</p>
     </div>
-
     <div id="toolbox" class="content-section">
       <div class="section-header">
         <h2>Lab Toolbox</h2>
         <button class="btn-primary">+ Add Tool</button>
       </div>
-      <p>Lab Toolbox management will be added here.</p>
+      <p>Coming soon...</p>
     </div>
-
     <div id="systems" class="content-section">
       <div class="section-header">
         <h2>System Details</h2>
         <button class="btn-primary">+ Add System</button>
       </div>
-      <p>System Details management will be added here.</p>
+      <p>Coming soon...</p>
     </div>
-
     <div id="stationary" class="content-section">
       <div class="section-header">
         <h2>Stationary Items</h2>
         <button class="btn-primary">+ Add Item</button>
       </div>
-      <p>Stationary Items management will be added here.</p>
+      <p>Coming soon...</p>
     </div>
   </div>
 
-  <!-- Firebase Script -->
+  <!-- Vendor Modal -->
+  <div class="modal" id="vendorModal">
+    <div class="modal-content">
+      <h3 id="modalTitle">Add Vendor</h3>
+      <form id="vendorForm">
+        <input type="hidden" id="vendorId">
+        <div class="form-group">
+          <label>Vendor Name</label>
+          <input type="text" id="vendorName" required>
+        </div>
+        <div class="form-group">
+          <label>Contact Number</label>
+          <input type="text" id="vendorContact" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="vendorEmail">
+        </div>
+        <div class="form-group">
+          <label>Address</label>
+          <input type="text" id="vendorAddress">
+        </div>
+        <div class="form-group">
+          <label>Products / Services</label>
+          <textarea id="vendorProducts" rows="3"></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel" onclick="closeVendorModal()">Cancel</button>
+          <button type="submit" class="btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Firebase + Logic -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyBrWfsmDxeDgmsmg3wxqwAUjwtDLnxt4_A",
@@ -332,12 +369,11 @@
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
+    const db = getFirestore(app);
 
-    // Protect the page
+    // Protect page
     onAuthStateChanged(auth, (user) => {
-      if (!user) {
-        window.location.href = "admin-login.html";
-      }
+      if (!user) window.location.href = "admin-login.html";
     });
 
     // Logout
@@ -348,14 +384,10 @@
 
     // Section switching
     window.showSection = function(sectionId) {
-      document.querySelectorAll('.content-section').forEach(sec => {
-        sec.classList.remove('active');
-      });
+      document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
       document.getElementById(sectionId).classList.add('active');
 
-      document.querySelectorAll('.menu-item').forEach(item => {
-        item.classList.remove('active');
-      });
+      document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
       event.currentTarget.classList.add('active');
 
       const titles = {
@@ -367,7 +399,96 @@
         stationary: "Stationary Items"
       };
       document.getElementById("pageTitle").textContent = titles[sectionId];
+
+      if (sectionId === 'vendors') loadVendors();
     };
+
+    // ===== VENDOR FUNCTIONS =====
+    async function loadVendors() {
+      const tbody = document.getElementById("vendorTableBody");
+      tbody.innerHTML = "<tr><td colspan='6'>Loading...</td></tr>";
+
+      const querySnapshot = await getDocs(collection(db, "vendors"));
+      tbody.innerHTML = "";
+
+      if (querySnapshot.empty) {
+        tbody.innerHTML = "<tr><td colspan='6'>No vendors found. Add one!</td></tr>";
+        return;
+      }
+
+      querySnapshot.forEach((docSnap) => {
+        const data = docSnap.data();
+        const row = `
+          <tr>
+            <td>${data.name || ''}</td>
+            <td>${data.contact || ''}</td>
+            <td>${data.email || ''}</td>
+            <td>${data.address || ''}</td>
+            <td>${data.products || ''}</td>
+            <td>
+              <button class="action-btn edit-btn" onclick="editVendor('${docSnap.id}', '${data.name}', '${data.contact}', '${data.email || ''}', '${data.address || ''}', '${data.products || ''}')">Edit</button>
+              <button class="action-btn delete-btn" onclick="deleteVendor('${docSnap.id}')">Delete</button>
+            </td>
+          </tr>
+        `;
+        tbody.innerHTML += row;
+      });
+    }
+
+    window.openVendorModal = function() {
+      document.getElementById("modalTitle").textContent = "Add Vendor";
+      document.getElementById("vendorForm").reset();
+      document.getElementById("vendorId").value = "";
+      document.getElementById("vendorModal").style.display = "flex";
+    };
+
+    window.closeVendorModal = function() {
+      document.getElementById("vendorModal").style.display = "none";
+    };
+
+    window.editVendor = function(id, name, contact, email, address, products) {
+      document.getElementById("modalTitle").textContent = "Edit Vendor";
+      document.getElementById("vendorId").value = id;
+      document.getElementById("vendorName").value = name;
+      document.getElementById("vendorContact").value = contact;
+      document.getElementById("vendorEmail").value = email;
+      document.getElementById("vendorAddress").value = address;
+      document.getElementById("vendorProducts").value = products;
+      document.getElementById("vendorModal").style.display = "flex";
+    };
+
+    window.deleteVendor = async function(id) {
+      if (confirm("Are you sure you want to delete this vendor?")) {
+        await deleteDoc(doc(db, "vendors", id));
+        loadVendors();
+      }
+    };
+
+    document.getElementById("vendorForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const id = document.getElementById("vendorId").value;
+      const vendorData = {
+        name: document.getElementById("vendorName").value,
+        contact: document.getElementById("vendorContact").value,
+        email: document.getElementById("vendorEmail").value,
+        address: document.getElementById("vendorAddress").value,
+        products: document.getElementById("vendorProducts").value,
+        updatedAt: new Date().toISOString()
+      };
+
+      if (id) {
+        // Update
+        await updateDoc(doc(db, "vendors", id), vendorData);
+      } else {
+        // Add
+        vendorData.createdAt = new Date().toISOString();
+        await addDoc(collection(db, "vendors"), vendorData);
+      }
+
+      closeVendorModal();
+      loadVendors();
+    });
   </script>
 </body>
 </html>
