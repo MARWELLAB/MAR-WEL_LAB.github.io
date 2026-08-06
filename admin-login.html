@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Login | MAR-WEL LAB</title>
+  <title>Login | MAR-WEL LAB</title>
   <link rel="icon" href="images/marwel_logo.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -21,31 +21,46 @@
       border-radius: 16px;
       padding: 2.5rem 2rem;
       width: 100%;
-      max-width: 400px;
+      max-width: 420px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.3);
       text-align: center;
     }
     .login-box img {
-      width: 80px;
-      height: 80px;
+      width: 85px; height: 85px;
       border-radius: 50%;
       margin-bottom: 1rem;
       border: 3px solid #1e5f8a;
     }
-    .login-box h2 {
-      color: #1a2e4a;
-      font-size: 1.5rem;
-      margin-bottom: 0.3rem;
+    .login-box h2 { color: #1a2e4a; font-size: 1.5rem; margin-bottom: 0.3rem; }
+    .login-box p  { color: #6b7c93; font-size: 0.88rem; margin-bottom: 1.5rem; }
+
+    /* Role selector tabs */
+    .role-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 1.8rem;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1.5px solid #ccdbe8;
     }
-    .login-box p {
+    .role-tab {
+      flex: 1;
+      padding: 0.65rem;
+      background: white;
       color: #6b7c93;
+      font-weight: 600;
       font-size: 0.88rem;
-      margin-bottom: 2rem;
+      cursor: pointer;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s;
     }
-    .form-group {
-      margin-bottom: 1.2rem;
-      text-align: left;
+    .role-tab.active {
+      background: #1e5f8a;
+      color: white;
     }
+
+    .form-group { margin-bottom: 1.2rem; text-align: left; }
     .form-group label {
       display: block;
       font-size: 0.88rem;
@@ -81,15 +96,23 @@
       transition: background 0.2s;
       font-family: 'Inter', sans-serif;
     }
-    .btn-login:hover { background: #1a2e4a; }
-    .btn-login:disabled {
-      background: #6b7c93;
-      cursor: not-allowed;
-    }
+    .btn-login:hover    { background: #1a2e4a; }
+    .btn-login:disabled { background: #6b7c93; cursor: not-allowed; }
+
     .error-msg {
       display: none;
       background: #f8d7da;
       color: #721c24;
+      padding: 0.8rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+    .success-msg {
+      display: none;
+      background: #d4edda;
+      color: #155724;
       padding: 0.8rem;
       border-radius: 8px;
       font-size: 0.88rem;
@@ -103,34 +126,51 @@
       text-decoration: none;
     }
     .back-link:hover { color: #1e5f8a; }
+
+    /* Role badge */
+    .role-badge {
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .badge-admin  { background: #fff3cd; color: #856404; }
+    .badge-member { background: #d4edda; color: #155724; }
   </style>
 </head>
 <body>
   <div class="login-box">
     <img src="images/marwel_logo.png" alt="MAR-WEL Logo" />
-    <h2>Admin Login</h2>
-    <p>MAR-WEL LAB — Secure Access</p>
+    <h2>MAR-WEL LAB</h2>
+    <p>Secure Portal Access</p>
 
-    <div class="error-msg" id="errorMsg"></div>
-
-    <div class="form-group">
-      <label>Email Address</label>
-      <input
-        type="email"
-        id="adminEmail"
-        placeholder="admin@marwellab.com"
-        required
-      />
+    <!-- Role Tabs -->
+    <div class="role-tabs">
+      <button class="role-tab active" id="adminTab"  onclick="switchRole('admin')">
+        🔐 Admin
+      </button>
+      <button class="role-tab"        id="memberTab" onclick="switchRole('member')">
+        👤 Team Member
+      </button>
     </div>
 
+    <!-- Role Badge -->
+    <div class="role-badge badge-admin" id="roleBadge">Admin — Full Access</div>
+
+    <!-- Messages -->
+    <div class="error-msg"   id="errorMsg"></div>
+    <div class="success-msg" id="successMsg"></div>
+
+    <!-- Form -->
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" id="loginEmail" placeholder="Enter your email" required />
+    </div>
     <div class="form-group">
       <label>Password</label>
-      <input
-        type="password"
-        id="adminPassword"
-        placeholder="Enter password"
-        required
-      />
+      <input type="password" id="loginPassword" placeholder="Enter password" required />
     </div>
 
     <button class="btn-login" id="loginBtn">Login</button>
@@ -142,6 +182,8 @@
       from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getAuth, signInWithEmailAndPassword }
       from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getFirestore, doc, getDoc }
+      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
     const firebaseConfig = {
       apiKey            : "AIzaSyBrWfsmDxeDgmsmg3wxqwAUjwtDLnxt4_A",
@@ -154,12 +196,45 @@
 
     const app  = initializeApp(firebaseConfig);
     const auth = getAuth(app);
+    const db   = getFirestore(app);
 
+    let currentRole = 'admin';
+
+    // ---- Switch role tab ----
+    window.switchRole = function(role) {
+      currentRole = role;
+      const badge    = document.getElementById('roleBadge');
+      const adminTab  = document.getElementById('adminTab');
+      const memberTab = document.getElementById('memberTab');
+
+      if (role === 'admin') {
+        adminTab.classList.add('active');
+        memberTab.classList.remove('active');
+        badge.className   = 'role-badge badge-admin';
+        badge.textContent = '🔐 Admin — Full Access';
+      } else {
+        memberTab.classList.add('active');
+        adminTab.classList.remove('active');
+        badge.className   = 'role-badge badge-member';
+        badge.textContent = '👤 Team Member — View Only';
+      }
+
+      // Clear messages
+      document.getElementById('errorMsg').style.display   = 'none';
+      document.getElementById('successMsg').style.display = 'none';
+    };
+
+    // ---- Login ----
     document.getElementById("loginBtn").addEventListener("click", async () => {
-      const email    = document.getElementById("adminEmail").value.trim();
-      const password = document.getElementById("adminPassword").value.trim();
-      const errorMsg = document.getElementById("errorMsg");
-      const loginBtn = document.getElementById("loginBtn");
+      const email     = document.getElementById("loginEmail").value.trim();
+      const password  = document.getElementById("loginPassword").value.trim();
+      const errorMsg  = document.getElementById("errorMsg");
+      const successMsg = document.getElementById("successMsg");
+      const loginBtn  = document.getElementById("loginBtn");
+
+      // Hide messages
+      errorMsg.style.display   = 'none';
+      successMsg.style.display = 'none';
 
       if (!email || !password) {
         errorMsg.style.display = "block";
@@ -167,13 +242,53 @@
         return;
       }
 
-      loginBtn.textContent   = "Logging in…";
-      loginBtn.disabled      = true;
-      errorMsg.style.display = "none";
+      loginBtn.textContent = "Logging in…";
+      loginBtn.disabled    = true;
 
       try {
-        await signInWithEmailAndPassword(auth, email, password);
-        window.location.href = "admin-dashboard.html";
+        // Step 1: Sign in with Firebase Auth
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        // Step 2: Check role in Firestore
+        const roleDoc  = await getDoc(doc(db, "roles", user.email));
+
+        if (!roleDoc.exists()) {
+          throw { code: "auth/no-role", message: "No role assigned!" };
+        }
+
+        const userRole = roleDoc.data().role;
+
+        // Step 3: Check if selected tab matches actual role
+        if (currentRole === 'admin' && userRole !== 'admin') {
+          errorMsg.style.display = "block";
+          errorMsg.textContent   = "❌ You don't have Admin access!";
+          loginBtn.textContent   = "Login";
+          loginBtn.disabled      = false;
+          await auth.signOut();
+          return;
+        }
+
+        if (currentRole === 'member' && userRole !== 'member') {
+          errorMsg.style.display = "block";
+          errorMsg.textContent   = "❌ Please use Admin login!";
+          loginBtn.textContent   = "Login";
+          loginBtn.disabled      = false;
+          await auth.signOut();
+          return;
+        }
+
+        // Step 4: Redirect based on role
+        successMsg.style.display = "block";
+        successMsg.textContent   = "✅ Login successful! Redirecting…";
+
+        setTimeout(() => {
+          if (userRole === 'admin') {
+            window.location.href = "admin-dashboard.html";
+          } else {
+            window.location.href = "member-dashboard.html";
+          }
+        }, 1000);
 
       } catch (error) {
         loginBtn.textContent = "Login";
@@ -187,14 +302,16 @@
         ) {
           errorMsg.textContent = "❌ Wrong email or password!";
         } else if (error.code === "auth/too-many-requests") {
-          errorMsg.textContent = "⚠️ Too many attempts! Try after sometime.";
+          errorMsg.textContent = "⚠️ Too many attempts! Try again later.";
+        } else if (error.code === "auth/no-role") {
+          errorMsg.textContent = "❌ No role assigned! Contact admin.";
         } else {
-          errorMsg.textContent = "❌ Login failed! " + error.message;
+          errorMsg.textContent = "❌ Login failed: " + error.message;
         }
       }
     });
 
-    // Enter key to login
+    // Enter key support
     document.addEventListener("keydown", (e) => {
       if (e.key === "Enter") document.getElementById("loginBtn").click();
     });
