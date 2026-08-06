@@ -313,6 +313,48 @@
     <div id="stationary" class="content-section"><div class="section-header"><h2>Stationary Items</h2><button class="btn-primary">+ Add Item</button></div><p>Coming soon...</p></div>
   </div>
 
+  <!-- System Details Section -->
+<div id="systems" class="content-section">
+  <div class="section-header">
+    <h2>System Details</h2>
+    <button class="btn-primary" onclick="openSystemModal()">+ Add System</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>System No</th>
+        <th>CPU Model</th>
+        <th>Monitor Model</th>
+        <th>Mouse</th>
+        <th>Keyboard</th>
+        <th>User Name</th>
+        <th>User ID</th>
+        <th>Location</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="systemTableBody"></tbody>
+  </table>
+</div>
+
+  <!-- Stationary Items Section -->
+<div id="stationary" class="content-section">
+  <div class="section-header">
+    <h2>Stationary Items</h2>
+    <button class="btn-primary" onclick="openStationaryModal()">+ Add Item</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Availability</th>
+        <th>Verify</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="stationaryTableBody"></tbody>
+  </table>
+</div>
   
   <!-- Vendor Modal -->
 <div class="modal" id="vendorModal">
@@ -431,6 +473,81 @@
       </form>
     </div>
   </div>
+
+  <!-- System Modal -->
+<div class="modal" id="systemModal">
+  <div class="modal-content">
+    <h3 id="systemModalTitle">Add System</h3>
+    <form id="systemForm">
+      <input type="hidden" id="systemId">
+      <div class="form-group">
+        <label>System No</label>
+        <input type="text" id="systemNo" required>
+      </div>
+      <div class="form-group">
+        <label>CPU Model</label>
+        <input type="text" id="cpuModel" required>
+      </div>
+      <div class="form-group">
+        <label>Monitor Model</label>
+        <input type="text" id="monitorModel" required>
+      </div>
+      <div class="form-group">
+        <label>Mouse</label>
+        <input type="text" id="mouse" required>
+      </div>
+      <div class="form-group">
+        <label>Keyboard</label>
+        <input type="text" id="keyboard" required>
+      </div>
+      <div class="form-group">
+        <label>User Name</label>
+        <input type="text" id="userName" required>
+      </div>
+      <div class="form-group">
+        <label>User ID</label>
+        <input type="text" id="userId" required>
+      </div>
+      <div class="form-group">
+        <label>Location</label>
+        <input type="text" id="systemLocation" required>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" onclick="closeSystemModal()">Cancel</button>
+        <button type="submit" class="btn-primary">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <!-- Stationary Modal -->
+<div class="modal" id="stationaryModal">
+  <div class="modal-content">
+    <h3 id="stationaryModalTitle">Add Stationary Item</h3>
+    <form id="stationaryForm">
+      <input type="hidden" id="stationaryId">
+      <div class="form-group">
+        <label>Item Name</label>
+        <input type="text" id="itemName" required>
+      </div>
+      <div class="form-group">
+        <label>Availability</label>
+        <select id="availability">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Verify</label>
+        <input type="text" id="verify" placeholder="Verification details" required>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" onclick="closeStationaryModal()">Cancel</button>
+        <button type="submit" class="btn-primary">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
