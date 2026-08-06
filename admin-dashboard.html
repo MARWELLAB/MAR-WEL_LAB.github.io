@@ -514,6 +514,88 @@ document.getElementById("vendorForm").addEventListener("submit", async (e) => {
   closeVendorModal();
   loadVendors();
 });
+    // ========= SUPPLIER FUNCTIONS =========
+async function loadSuppliers() {
+  const tbody = document.getElementById("supplierTableBody");
+  tbody.innerHTML = "<tr><td colspan='6'>Loading...</td></tr>";
+
+  const snapshot = await getDocs(collection(db, "suppliers"));
+  tbody.innerHTML = "";
+
+  if (snapshot.empty) {
+    tbody.innerHTML = "<tr><td colspan='6'>No suppliers found.</td></tr>";
+    return;
+  }
+
+  snapshot.forEach((docSnap) => {
+    const d = docSnap.data();
+    tbody.innerHTML += `
+      <tr>
+        <td>${d.name || ''}</td>
+        <td>${d.contact || ''}</td>
+        <td>${d.email || ''}</td>
+        <td>${d.address || ''}</td>
+        <td>${d.materials || ''}</td>
+        <td>
+          <button class="action-btn edit-btn" onclick="editSupplier('${docSnap.id}', '${d.name}', '${d.contact}', '${d.email || ''}', '${d.address || ''}', '${d.materials || ''}')">Edit</button>
+          <button class="action-btn delete-btn" onclick="deleteSupplier('${docSnap.id}')">Delete</button>
+        </td>
+      </tr>
+    `;
+  });
+}
+
+window.openSupplierModal = function() {
+  document.getElementById("supplierModalTitle").textContent = "Add Supplier";
+  document.getElementById("supplierForm").reset();
+  document.getElementById("supplierId").value = "";
+  document.getElementById("supplierModal").style.display = "flex";
+};
+
+window.closeSupplierModal = function() {
+  document.getElementById("supplierModal").style.display = "none";
+};
+
+window.editSupplier = function(id, name, contact, email, address, materials) {
+  document.getElementById("supplierModalTitle").textContent = "Edit Supplier";
+  document.getElementById("supplierId").value = id;
+  document.getElementById("supplierName").value = name;
+  document.getElementById("supplierContact").value = contact;
+  document.getElementById("supplierEmail").value = email;
+  document.getElementById("supplierAddress").value = address;
+  document.getElementById("supplierMaterials").value = materials;
+  document.getElementById("supplierModal").style.display = "flex";
+};
+
+window.deleteSupplier = async function(id) {
+  if (confirm("Delete this supplier?")) {
+    await deleteDoc(doc(db, "suppliers", id));
+    loadSuppliers();
+  }
+};
+
+// Supplier Form Submit
+document.getElementById("supplierForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const id = document.getElementById("supplierId").value;
+  const data = {
+    name: document.getElementById("supplierName").value,
+    contact: document.getElementById("supplierContact").value,
+    email: document.getElementById("supplierEmail").value,
+    address: document.getElementById("supplierAddress").value,
+    materials: document.getElementById("supplierMaterials").value,
+    updatedAt: new Date().toISOString()
+  };
+
+  if (id) {
+    await updateDoc(doc(db, "suppliers", id), data);
+  } else {
+    data.createdAt = new Date().toISOString();
+    await addDoc(collection(db, "suppliers"), data);
+  }
+  closeSupplierModal();
+  loadSuppliers();
+});
     // ========= LAB TOOLBOX FUNCTIONS =========
     async function loadToolbox() {
       const tbody = document.getElementById("toolboxTableBody");
