@@ -852,6 +852,233 @@ document.getElementById("supplierForm").addEventListener("submit", async (e) => 
       closeToolboxModal();
       loadToolbox();
     });
+
+    // ========= FIX showSection — add suppliers, systems, stationary =========
+window.showSection = function(sectionId) {
+  document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+  document.getElementById(sectionId).classList.add('active');
+
+  document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+
+  const titles = {
+    dashboard  : "Dashboard",
+    vendors    : "Vendor Details",
+    suppliers  : "Supplier Details",
+    toolbox    : "Lab Toolbox",
+    systems    : "System Details",
+    stationary : "Stationary Items"
+  };
+  document.getElementById("pageTitle").textContent = titles[sectionId];
+
+  // ✅ Load data for each section
+  if (sectionId === 'vendors')    loadVendors();
+  if (sectionId === 'suppliers')  loadSuppliers();
+  if (sectionId === 'toolbox')    loadToolbox();
+  if (sectionId === 'systems')    loadSystems();
+  if (sectionId === 'stationary') loadStationary();
+};
+
+// ========= SYSTEM FUNCTIONS =========
+async function loadSystems() {
+  const tbody = document.getElementById("systemTableBody");
+  tbody.innerHTML = "<tr><td colspan='9'>Loading...</td></tr>";
+
+  const snapshot = await getDocs(collection(db, "systems"));
+  tbody.innerHTML = "";
+
+  if (snapshot.empty) {
+    tbody.innerHTML = "<tr><td colspan='9'>No systems found.</td></tr>";
+    return;
+  }
+
+  snapshot.forEach((docSnap) => {
+    const d = docSnap.data();
+    tbody.innerHTML += `
+      <tr>
+        <td>${d.systemNo   || ''}</td>
+        <td>${d.cpuModel   || ''}</td>
+        <td>${d.monitorModel || ''}</td>
+        <td>${d.mouse      || ''}</td>
+        <td>${d.keyboard   || ''}</td>
+        <td>${d.userName   || ''}</td>
+        <td>${d.userId     || ''}</td>
+        <td>${d.location   || ''}</td>
+        <td>
+          <button class="action-btn edit-btn"
+            onclick="editSystem(
+              '${docSnap.id}',
+              '${d.systemNo}',
+              '${d.cpuModel}',
+              '${d.monitorModel}',
+              '${d.mouse}',
+              '${d.keyboard}',
+              '${d.userName}',
+              '${d.userId}',
+              '${d.location}'
+            )">Edit</button>
+          <button class="action-btn delete-btn"
+            onclick="deleteSystem('${docSnap.id}')">Delete</button>
+        </td>
+      </tr>
+    `;
+  });
+}
+
+window.openSystemModal = function () {
+  document.getElementById("systemModalTitle").textContent = "Add System";
+  document.getElementById("systemForm").reset();
+  document.getElementById("systemId").value = "";
+  document.getElementById("systemModal").style.display = "flex";
+};
+
+window.closeSystemModal = function () {
+  document.getElementById("systemModal").style.display = "none";
+};
+
+window.editSystem = function (
+  id, systemNo, cpuModel, monitorModel,
+  mouse, keyboard, userName, userId, location
+) {
+  document.getElementById("systemModalTitle").textContent = "Edit System";
+  document.getElementById("systemId").value       = id;
+  document.getElementById("systemNo").value        = systemNo;
+  document.getElementById("cpuModel").value        = cpuModel;
+  document.getElementById("monitorModel").value    = monitorModel;
+  document.getElementById("mouse").value           = mouse;
+  document.getElementById("keyboard").value        = keyboard;
+  document.getElementById("userName").value        = userName;
+  document.getElementById("userId").value          = userId;
+  document.getElementById("systemLocation").value  = location;
+  document.getElementById("systemModal").style.display = "flex";
+};
+
+window.deleteSystem = async function (id) {
+  if (confirm("Delete this system?")) {
+    await deleteDoc(doc(db, "systems", id));
+    loadSystems();
+  }
+};
+
+// System Form Submit
+document.getElementById("systemForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const id = document.getElementById("systemId").value;
+  const data = {
+    systemNo     : document.getElementById("systemNo").value,
+    cpuModel     : document.getElementById("cpuModel").value,
+    monitorModel : document.getElementById("monitorModel").value,
+    mouse        : document.getElementById("mouse").value,
+    keyboard     : document.getElementById("keyboard").value,
+    userName     : document.getElementById("userName").value,
+    userId       : document.getElementById("userId").value,
+    location     : document.getElementById("systemLocation").value,
+    updatedAt    : new Date().toISOString()
+  };
+
+  if (id) {
+    await updateDoc(doc(db, "systems", id), data);
+  } else {
+    data.createdAt = new Date().toISOString();
+    await addDoc(collection(db, "systems"), data);
+  }
+  closeSystemModal();
+  loadSystems();
+});
+
+// ========= STATIONARY FUNCTIONS =========
+async function loadStationary() {
+  const tbody = document.getElementById("stationaryTableBody");
+  tbody.innerHTML = "<tr><td colspan='4'>Loading...</td></tr>";
+
+  const snapshot = await getDocs(collection(db, "stationary"));
+  tbody.innerHTML = "";
+
+  if (snapshot.empty) {
+    tbody.innerHTML = "<tr><td colspan='4'>No stationary items found.</td></tr>";
+    return;
+  }
+
+  snapshot.forEach((docSnap) => {
+    const d = docSnap.data();
+    const availColor = d.availability === 'Yes' ? '#27ae60' : '#e74c3c';
+    tbody.innerHTML += `
+      <tr>
+        <td>${d.itemName     || ''}</td>
+        <td>
+          <span style="
+            background:${availColor};
+            color:white;
+            padding:3px 10px;
+            border-radius:12px;
+            font-size:0.82rem;
+            font-weight:600;
+          ">${d.availability || ''}</span>
+        </td>
+        <td>${d.verify       || ''}</td>
+        <td>
+          <button class="action-btn edit-btn"
+            onclick="editStationary(
+              '${docSnap.id}',
+              '${d.itemName}',
+              '${d.availability}',
+              '${d.verify}'
+            )">Edit</button>
+          <button class="action-btn delete-btn"
+            onclick="deleteStationary('${docSnap.id}')">Delete</button>
+        </td>
+      </tr>
+    `;
+  });
+}
+
+window.openStationaryModal = function () {
+  document.getElementById("stationaryModalTitle").textContent = "Add Stationary Item";
+  document.getElementById("stationaryForm").reset();
+  document.getElementById("stationaryId").value = "";
+  document.getElementById("stationaryModal").style.display = "flex";
+};
+
+window.closeStationaryModal = function () {
+  document.getElementById("stationaryModal").style.display = "none";
+};
+
+window.editStationary = function (id, itemName, availability, verify) {
+  document.getElementById("stationaryModalTitle").textContent = "Edit Stationary Item";
+  document.getElementById("stationaryId").value    = id;
+  document.getElementById("itemName").value         = itemName;
+  document.getElementById("availability").value     = availability;
+  document.getElementById("verify").value           = verify;
+  document.getElementById("stationaryModal").style.display = "flex";
+};
+
+window.deleteStationary = async function (id) {
+  if (confirm("Delete this stationary item?")) {
+    await deleteDoc(doc(db, "stationary", id));
+    loadStationary();
+  }
+};
+
+// Stationary Form Submit
+document.getElementById("stationaryForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const id = document.getElementById("stationaryId").value;
+  const data = {
+    itemName     : document.getElementById("itemName").value,
+    availability : document.getElementById("availability").value,
+    verify       : document.getElementById("verify").value,
+    updatedAt    : new Date().toISOString()
+  };
+
+  if (id) {
+    await updateDoc(doc(db, "stationary", id), data);
+  } else {
+    data.createdAt = new Date().toISOString();
+    await addDoc(collection(db, "stationary"), data);
+  }
+  closeStationaryModal();
+  loadStationary();
+});
   </script>
 </body>
 </html>
