@@ -428,92 +428,92 @@
       if (sectionId === 'toolbox') loadToolbox();
     };
 
+    
     // ========= VENDOR FUNCTIONS =========
-    async function loadVendors() {
-      const tbody = document.getElementById("vendorTableBody");
-      tbody.innerHTML = "<tr><td colspan='7'>Loading...</td></tr>";
+async function loadVendors() {
+  const tbody = document.getElementById("vendorTableBody");
+  tbody.innerHTML = "<tr><td colspan='7'>Loading...</td></tr>";
 
-      const snapshot = await getDocs(collection(db, "vendors"));
-      tbody.innerHTML = "";
+  const snapshot = await getDocs(collection(db, "vendors"));
+  tbody.innerHTML = "";
 
-      if (snapshot.empty) {
-        tbody.innerHTML = "<tr><td colspan='7'>No vendors found.</td></tr>";
-        return;
-      }
+  if (snapshot.empty) {
+    tbody.innerHTML = "<tr><td colspan='7'>No vendors found.</td></tr>";
+    return;
+  }
 
-      snapshot.forEach((docSnap) => {
-        const d = docSnap.data();
-        tbody.innerHTML += `
-          <tr>
-            <td>${d.vendorId || ''}</td>
-            <td>${d.name || ''}</td>
-            <td>${d.contact || ''}</td>
-            <td>${d.email || ''}</td>
-            <td>${d.address || ''}</td>
-            <td>${d.products || ''}</td>
-            <td>
-              <button class="action-btn edit-btn" onclick="editVendor('${docSnap.id}', '${d.vendorId}', '${d.name}', '${d.contact}', '${d.email || ''}', '${d.address || ''}', '${d.products || ''}')">Edit</button>
-              <button class="action-btn delete-btn" onclick="deleteVendor('${docSnap.id}')">Delete</button>
-            </td>
-          </tr>
-        `;
-      });
-    }
+  snapshot.forEach((docSnap) => {
+    const d = docSnap.data();
+    tbody.innerHTML += `
+      <tr>
+        <td>${d.vendorId || ''}</td>
+        <td>${d.name || ''}</td>
+        <td>${d.contact || ''}</td>
+        <td>${d.email || ''}</td>
+        <td>${d.address || ''}</td>
+        <td>${d.products || ''}</td>
+        <td>
+          <button class="action-btn edit-btn" onclick="editVendor('${docSnap.id}', '${d.vendorId}', '${d.name}', '${d.contact}', '${d.email || ''}', '${d.address || ''}', '${d.products || ''}')">Edit</button>
+          <button class="action-btn delete-btn" onclick="deleteVendor('${docSnap.id}')">Delete</button>
+        </td>
+      </tr>
+    `;
+  });
+}
 
-    window.openVendorModal = function() {
-      document.getElementById("modalTitle").textContent = "Add Vendor";
-      document.getElementById("vendorForm").reset();
-      document.getElementById("vendorId").value = "";
-      document.getElementById("vendorModal").style.display = "flex";
-    };
+window.openVendorModal = function() {
+  document.getElementById("modalTitle").textContent = "Add Vendor";
+  document.getElementById("vendorForm").reset();
+  document.getElementById("vendorId").value = "";
+  document.getElementById("vendorModal").style.display = "flex";
+};
 
-    window.closeVendorModal = function() {
-      document.getElementById("vendorModal").style.display = "none";
-    };
+window.closeVendorModal = function() {
+  document.getElementById("vendorModal").style.display = "none";
+};
 
-    window.editVendor = function(id, vendorId, name, contact, email, address, products) {
-      document.getElementById("modalTitle").textContent = "Edit Vendor";
-      document.getElementById("vendorId").value = id;
-      document.getElementById("vendorIdInput").value = vendorId;
-      document.getElementById("vendorName").value = name;
-      document.getElementById("vendorContact").value = contact;
-      document.getElementById("vendorEmail").value = email;
-      document.getElementById("vendorAddress").value = address;
-      document.getElementById("vendorProducts").value = products;
-      document.getElementById("vendorModal").style.display = "flex";
-    };
+window.editVendor = function(id, vendorId, name, contact, email, address, products) {
+  document.getElementById("modalTitle").textContent = "Edit Vendor";
+  document.getElementById("vendorId").value = id;
+  document.getElementById("vendorIdInput").value = vendorId;
+  document.getElementById("vendorName").value = name;
+  document.getElementById("vendorContact").value = contact;
+  document.getElementById("vendorEmail").value = email;
+  document.getElementById("vendorAddress").value = address;
+  document.getElementById("vendorProducts").value = products;
+  document.getElementById("vendorModal").style.display = "flex";
+};
 
-    window.deleteVendor = async function(id) {
-      if (confirm("Delete this vendor?")) {
-        await deleteDoc(doc(db, "vendors", id));
-        loadVendors();
-      }
-    };
+window.deleteVendor = async function(id) {
+  if (confirm("Delete this vendor?")) {
+    await deleteDoc(doc(db, "vendors", id));
+    loadVendors();
+  }
+};
 
-    // Vendor Form Submit
-    document.getElementById("vendorForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const id = document.getElementById("vendorId").value;
-      const data = {
-        vendorId: document.getElementById("vendorIdInput").value,
-        name: document.getElementById("vendorName").value,
-        contact: document.getElementById("vendorContact").value,
-        email: document.getElementById("vendorEmail").value,
-        address: document.getElementById("vendorAddress").value,
-        products: document.getElementById("vendorProducts").value,
-        updatedAt: new Date().toISOString()
-      };
+// Vendor Form Submit
+document.getElementById("vendorForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const id = document.getElementById("vendorId").value;
+  const data = {
+    vendorId: document.getElementById("vendorIdInput").value,
+    name: document.getElementById("vendorName").value,
+    contact: document.getElementById("vendorContact").value,
+    email: document.getElementById("vendorEmail").value,
+    address: document.getElementById("vendorAddress").value,
+    products: document.getElementById("vendorProducts").value,
+    updatedAt: new Date().toISOString()
+  };
 
-      if (id) {
-        await updateDoc(doc(db, "vendors", id), data);
-      } else {
-        data.createdAt = new Date().toISOString();
-        await addDoc(collection(db, "vendors"), data);
-      }
-      closeVendorModal();
-      loadVendors();
-    });
-
+  if (id) {
+    await updateDoc(doc(db, "vendors", id), data);
+  } else {
+    data.createdAt = new Date().toISOString();
+    await addDoc(collection(db, "vendors"), data);
+  }
+  closeVendorModal();
+  loadVendors();
+});
     // ========= LAB TOOLBOX FUNCTIONS =========
     async function loadToolbox() {
       const tbody = document.getElementById("toolboxTableBody");
