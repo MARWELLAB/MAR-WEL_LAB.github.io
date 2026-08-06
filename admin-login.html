@@ -1,67 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MAR-WEL Admin Login</title>
-  <link rel="stylesheet" href="css/admin.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login | MAR-WEL LAB</title>
+  <link rel="icon" href="images/marwel_logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      background: #f4f7fb;
       font-family: 'Inter', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background: linear-gradient(135deg, #1a2e4a 0%, #1e5f8a 100%);
       min-height: 100vh;
-      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .login-container {
-      width: 100%;
-      max-width: 420px;
-      padding: 20px;
-    }
-    .login-card {
+    .login-box {
       background: white;
-      padding: 2.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.1);
-    }
-    .login-logo {
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
       text-align: center;
+    }
+    .login-box img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      border: 3px solid #1e5f8a;
+    }
+    .login-box h2 {
+      color: #1a2e4a;
       font-size: 1.5rem;
-      font-weight: 700;
-      color: #1a2e4a;
-      margin-bottom: 0.5rem;
-    }
-    h1 {
-      text-align: center;
-      color: #1a2e4a;
       margin-bottom: 0.3rem;
     }
-    .login-subtitle {
-      text-align: center;
+    .login-box p {
       color: #6b7c93;
+      font-size: 0.88rem;
       margin-bottom: 2rem;
-      font-size: 0.95rem;
     }
-    label {
+    .form-group {
+      margin-bottom: 1.2rem;
+      text-align: left;
+    }
+    .form-group label {
       display: block;
-      margin-bottom: 0.4rem;
-      font-weight: 500;
+      font-size: 0.88rem;
+      font-weight: 600;
       color: #1a2e4a;
+      margin-bottom: 0.4rem;
     }
-    input {
+    .form-group input {
       width: 100%;
       padding: 0.8rem 1rem;
-      border: 1px solid #ccdbe8;
+      border: 1.5px solid #ccdbe8;
       border-radius: 8px;
-      margin-bottom: 1.2rem;
-      font-size: 1rem;
-      box-sizing: border-box;
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.2s;
     }
-    button {
+    .form-group input:focus {
+      outline: none;
+      border-color: #1e5f8a;
+      box-shadow: 0 0 0 3px rgba(30,95,138,0.1);
+    }
+    .btn-login {
       width: 100%;
-      padding: 0.9rem;
+      padding: 0.85rem;
       background: #1e5f8a;
       color: white;
       border: none;
@@ -69,76 +77,126 @@
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background 0.2s;
+      font-family: 'Inter', sans-serif;
     }
-    button:hover {
-      background: #1a2e4a;
+    .btn-login:hover { background: #1a2e4a; }
+    .btn-login:disabled {
+      background: #6b7c93;
+      cursor: not-allowed;
     }
-    #error {
-      color: #e74c3c;
-      text-align: center;
-      margin-top: 1rem;
+    .error-msg {
       display: none;
+      background: #f8d7da;
+      color: #721c24;
+      padding: 0.8rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      margin-bottom: 1rem;
     }
+    .back-link {
+      display: block;
+      margin-top: 1.5rem;
+      color: #6b7c93;
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+    .back-link:hover { color: #1e5f8a; }
   </style>
 </head>
 <body>
-  <div class="login-container">
-    <div class="login-card">
-      <div class="login-logo">MAR-WEL</div>
-      <h1>Admin Login</h1>
-      <p class="login-subtitle">Marine Aquaculture & Research Laboratory</p>
+  <div class="login-box">
+    <img src="images/marwel_logo.png" alt="MAR-WEL Logo" />
+    <h2>Admin Login</h2>
+    <p>MAR-WEL LAB — Secure Access</p>
 
-      <form id="loginForm">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="admin@example.com" required>
+    <div class="error-msg" id="errorMsg"></div>
 
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter password" required>
-
-        <button type="submit">Login</button>
-        
-        <p id="error"></p>
-      </form>
+    <div class="form-group">
+      <label>Email Address</label>
+      <input
+        type="email"
+        id="adminEmail"
+        placeholder="admin@marwellab.com"
+        required
+      />
     </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input
+        type="password"
+        id="adminPassword"
+        placeholder="Enter password"
+        required
+      />
+    </div>
+
+    <button class="btn-login" id="loginBtn">Login</button>
+    <a href="index.html" class="back-link">← Back to Website</a>
   </div>
 
-  <!-- Firebase SDKs -->
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { initializeApp }
+      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword }
+      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-    // Your Firebase configuration
     const firebaseConfig = {
-      apiKey: "AIzaSyBrWfsmDxeDgmsmg3wxqwAUjwtDLnxt4_A",
-      authDomain: "mar-wel-lab-86a7c.firebaseapp.com",
-      projectId: "mar-wel-lab-86a7c",
-      storageBucket: "mar-wel-lab-86a7c.firebasestorage.app",
-      messagingSenderId: "430163655582",
-      appId: "1:430163655582:web:950b7417d675b27adc748f",
-      measurementId: "G-JEBRTKG9BT"
+      apiKey            : "AIzaSyBrWfsmDxeDgmsmg3wxqwAUjwtDLnxt4_A",
+      authDomain        : "mar-wel-lab-86a7c.firebaseapp.com",
+      projectId         : "mar-wel-lab-86a7c",
+      storageBucket     : "mar-wel-lab-86a7c.firebasestorage.app",
+      messagingSenderId : "430163655582",
+      appId             : "1:430163655582:web:950b7417d675b27adc748f"
     };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
+    const app  = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    // Login Form Handler
-    document.getElementById("loginForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
+    document.getElementById("loginBtn").addEventListener("click", async () => {
+      const email    = document.getElementById("adminEmail").value.trim();
+      const password = document.getElementById("adminPassword").value.trim();
+      const errorMsg = document.getElementById("errorMsg");
+      const loginBtn = document.getElementById("loginBtn");
 
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-      const errorMsg = document.getElementById("error");
+      if (!email || !password) {
+        errorMsg.style.display = "block";
+        errorMsg.textContent   = "⚠️ Please enter email and password!";
+        return;
+      }
+
+      loginBtn.textContent   = "Logging in…";
+      loginBtn.disabled      = true;
+      errorMsg.style.display = "none";
 
       try {
         await signInWithEmailAndPassword(auth, email, password);
-        // Login successful
         window.location.href = "admin-dashboard.html";
+
       } catch (error) {
+        loginBtn.textContent = "Login";
+        loginBtn.disabled    = false;
         errorMsg.style.display = "block";
-        errorMsg.textContent = "Invalid email or password. Please try again.";
-        console.error(error);
+
+        if (
+          error.code === "auth/user-not-found"    ||
+          error.code === "auth/wrong-password"    ||
+          error.code === "auth/invalid-credential"
+        ) {
+          errorMsg.textContent = "❌ Wrong email or password!";
+        } else if (error.code === "auth/too-many-requests") {
+          errorMsg.textContent = "⚠️ Too many attempts! Try after sometime.";
+        } else {
+          errorMsg.textContent = "❌ Login failed! " + error.message;
+        }
       }
+    });
+
+    // Enter key to login
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") document.getElementById("loginBtn").click();
     });
   </script>
 </body>
